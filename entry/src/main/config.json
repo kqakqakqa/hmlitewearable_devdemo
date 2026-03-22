@@ -3,12 +3,11 @@
     "bundleName": "com.github.kqakqakqa.hmlitewearable.devdemo",
     "vendor": "example",
     "version": {
-      "code": 1000000,
-      "name": "1.0.0"
+      "code": 0,
+      "name": "0.1.0"
     }
   },
-  "deviceConfig": {
-  },
+  "deviceConfig": {},
   "module": {
     "deviceType": [
       "liteWearable"
@@ -22,14 +21,22 @@
       {
         "name": "default",
         "icon": "$media:icon",
-        "label": "$string:entry_MainAbility",
+        "label": "$string:appName",
         "type": "page"
       }
     ],
     "js": [
       {
         "pages": [
-          "pages/index/index"
+          "pages/index/index",
+          "pages/router/router",
+          "pages/menu/menu",
+          "pages/menu/about/about",
+          "pages/menu/licenses/licenses",
+          "pages/devdemo_index/devdemo_index",
+          "pages/demo_hmlFor/demo_hmlFor",
+          "pages/demo_jsHeap/demo_jsHeap",
+          "pages/testJsHeap/testJsHeap"
         ],
         "name": "default"
       }
