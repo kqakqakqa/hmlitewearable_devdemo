@@ -5,7 +5,8 @@ export default {
     uiSizes: $app.getImports().uiSizes,
     timeBatteryStr: "",
 
-    jsHeap: "-",
+    model: "未知",
+    jsHeap: "未知",
     doTest: false,
   },
 
@@ -24,9 +25,15 @@ export default {
 
     $app.getImports().storage.get({
       key: "jsHeap",
-      default: "-",
+      default: "未知",
       success: v => {
-        this.jsHeap = v || "-";
+        this.jsHeap = v;
+      },
+    });
+
+    $app.getImports().device.getInfo({
+      success: d => {
+        this.model = d.model || d.product || d.brand;
       },
     });
   },
@@ -51,6 +58,10 @@ export default {
     $app.getImports().router.replace({
       uri: "/pages/devdemo_index/devdemo_index",
     });
+  },
+
+  swipeBack(d) {
+    if (d.direction === "right") return this.clickBack();
   },
 }
 

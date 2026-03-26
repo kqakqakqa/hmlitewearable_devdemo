@@ -4,14 +4,14 @@
     <!-- timeBattery -->
     <list-item
       style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px; align-items: flex-end; justify-content: center;">
-      <text style="width: 280px; margin-bottom: 24px; text-align: center; font-size: 30px;">{{timeBatteryStr}}</text>
+      <text class="text-30px" style="width: 280px; margin-bottom: 24px; text-align: center;">{{timeBatteryStr}}</text>
     </list-item>
 
     <!-- title -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
-      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+      <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px;">
         <div style="width: 280px; height: 72px; align-items: center;">
-          <text style="font-size: 38px;">列表渲染</text>
+          <text class="text-38px">列表渲染</text>
         </div>
         <div
           style="width: {{uiSizes.uiWidth}}px; height: 72px; justify-content: flex-end; background-color: transparent;">

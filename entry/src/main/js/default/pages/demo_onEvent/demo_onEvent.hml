@@ -1,0 +1,82 @@
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; flex-direction: column;">
+
+  <!-- timeBattery -->
+  <list-item
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px; align-items: flex-end; justify-content: center;">
+    <text class="text-30px" style="width: 280px; margin-bottom: 24px; text-align: center;">{{timeBatteryStr}}</text>
+  </list-item>
+
+  <!-- title -->
+  <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
+    <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+      <div style="width: 280px; height: 72px; align-items: center;">
+        <text class="text-38px">事件</text>
+      </div>
+      <div
+        style="width: {{uiSizes.uiWidth}}px; height: 72px; justify-content: flex-end; background-color: transparent;">
+        <div on:click="clickBack" class="ui-round-btn">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+        </div>
+      </div>
+    </stack>
+  </list-item>
+
+  <!-- playground -->
+  <!-- 
+  playground base coord:
+    left: (uiSizes.screenWidth - 280) / 2
+    top: uiSizes.topMargin + 24 + 96
+  -->
+  <div style="width: {{uiSizes.screenWidth}}px; height: 180px; justify-content: center;">
+    <stack on:click="onClick" on:swipe="onSwipe" on:doubleclick="onDoubleClick" on:longpress="onLongPress"
+      on:longpressrelease="onLongPressRelease" on:touchstart="onTouchStart" on:touchmove="onTouchMove"
+      on:touchend="onTouchEnd" on:touchcancel="onTouchCancel" on:pinchstart="onPinchStart"
+      on:pinchupdate="onPinchUpdate" on:pinchend="onPinchEnd" on:pinchcancel="onPinchCancel"
+      style="width: 280px; height: 180px; background-color: #222; border-radius: 12px;">
+
+      <slider ref="bindRotation" on:change="onRotate" value="0" min="-100" max="100"
+        style="width: 0px; height: 0px; background-color: transparent;">
+      </slider>
+
+      <div
+        style="width: 280px; height: 180px; background-color: transparent; align-items: center; justify-content: center;">
+        <text style="width: 280px; color: gray; font-size: 30px; text-align: center;">
+          {{status || "playground"}}
+        </text>
+      </div>
+
+      <image if="{{touchStatus !== 0}}" src="/common/hand_point_up_tap-36px.png"
+        style="left: {{touchX - 18}}px; top: {{touchY - 18}}px; width: 36px; height: 36px; opacity: {{touchStatus === -1 ? '0.5' : 1}};">
+      </image>
+
+      <image if="{{pinchStatus !== 0}}" src="/common/hand_tap-36px.png"
+        style="left: {{pinchX - 18}}px; top: {{pinchY - 18}}px; width: 36px; height: 36px; opacity: {{pinchStatus === -1 ? '0.5' : 1}};">
+      </image>
+
+      <image if="{{swipeStatus === 'up'}}" src="/common/arrow_up_circle-36px.png"
+        style="left: 232px; top: 132px; width: 36px; height: 36px;">
+      </image>
+
+      <image if="{{swipeStatus === 'down'}}" src="/common/arrow_down_circle-36px.png"
+        style="left: 232px; top: 132px; width: 36px; height: 36px;">
+      </image>
+
+      <image if="{{swipeStatus === 'left'}}" src="/common/arrow_left_circle-36px.png"
+        style="left: 232px; top: 132px; width: 36px; height: 36px;">
+      </image>
+
+      <image if="{{swipeStatus === 'right'}}" src="/common/arrow_right_circle-36px.png"
+        style="left: 232px; top: 132px; width: 36px; height: 36px;">
+      </image>
+
+      <image if="{{rotateStatus > 0}}" src="/common/chevron_up_2_circle-36px.png"
+        style="left: 232px; top: 12px; width: 36px; height: 36px;">
+      </image>
+
+      <image if="{{rotateStatus < 0}}" src="/common/chevron_down_2_circle-36px.png"
+        style="left: 232px; top: 54px; width: 36px; height: 36px;">
+      </image>
+
+    </stack>
+  </div>
+</div>

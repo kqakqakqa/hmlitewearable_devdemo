@@ -16,14 +16,9 @@ export default {
   onHide() {
     if (this.$refs.mainList.rotation) this.$refs.mainList.rotation({ focus: false });
   },
-  clickAbout() {
+  pageTo(p) {
     $app.getImports().router.replace({
-      uri: "pages/menu/about/about",
-    });
-  },
-  clickLicenses() {
-    $app.getImports().router.replace({
-      uri: "pages/menu/licenses/licenses",
+      uri: "pages/" + p + "/" + p,
     });
   },
   clickBack() {
@@ -31,10 +26,11 @@ export default {
       uri: "/pages/devdemo_index/devdemo_index",
     });
   },
-  swipeBack(data) {
-    if (data.direction === "right") return this.clickBack();
+
+  swipeBack(d) {
+    if (d.direction === "right") return this.clickBack();
   },
-  nullFn() { },
+
   exitApp() {
     $app.getImports().app.terminate();
   },

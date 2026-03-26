@@ -113,6 +113,10 @@ export default {
       uri: "/pages/devdemo_index/devdemo_index",
     });
   },
+
+  swipeBack(d) {
+    if (d.direction === "right") return this.clickBack();
+  },
 }
 
 function getRnd() {

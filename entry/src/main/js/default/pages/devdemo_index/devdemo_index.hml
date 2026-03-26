@@ -4,39 +4,42 @@
     <!-- timeBattery -->
     <list-item
       style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px; align-items: flex-end; justify-content: center;">
-      <text style="width: 280px; margin-bottom: 24px; text-align: center; font-size: 30px;">{{timeBatteryStr}}</text>
+      <text class="text-30px" style="width: 280px; margin-bottom: 24px; text-align: center;">{{timeBatteryStr}}</text>
     </list-item>
 
     <!-- title -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
-      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+      <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px;">
         <div style="width: 280px; height: 72px; align-items: center;">
-          <text style="font-size: 38px;">DevDemo</text>
+          <text class="text-38px">DevDemo</text>
+        </div>
+        <div
+          style="width: {{uiSizes.uiWidth}}px; height: 72px; justify-content: flex-end; background-color: transparent;">
+          <div on:click="{{clickCard('menu')}}" class="ui-round-btn">
+            <image style="width: 44px; height: 44px;" src="/common/dot_grid_2x2-44px.png"></image>
+          </div>
         </div>
       </stack>
     </list-item>
 
-    <list-item class="main-card-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 96px;">
-      <div on:click="{{clickCard('demo_hmlFor')}}" class="main-card"
-        style="width: {{uiSizes.uiWidth}}px; height: 84px; flex-direction: row; justify-content: space-between;">
-        <text class="main-card-title">列表渲染</text>
-        <text style="font-size: 30px; color: gray; margin-right: 24px;">﹥</text>
+    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="{{clickCard('demo_hmlFor')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px btn-card-title">列表渲染</text>
+        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="main-card-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 96px;">
-      <div on:click="{{clickCard('demo_jsHeap')}}" class="main-card"
-        style="width: {{uiSizes.uiWidth}}px; height: 84px; flex-direction: row; justify-content: space-between;">
-        <text class="main-card-title">js heap</text>
-        <text style="font-size: 30px; color: gray; margin-right: 24px;">﹥</text>
+    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="{{clickCard('demo_jsHeap')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px btn-card-title">js heap</text>
+        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="main-card-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 96px;">
-      <div on:click="{{clickCard('menu')}}" class="main-card"
-        style="width: {{uiSizes.uiWidth}}px; height: 84px; flex-direction: row; justify-content: space-between;">
-        <text class="main-card-title">选项</text>
-        <text style="font-size: 30px; color: gray; margin-right: 24px;">﹥</text>
+    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="{{clickCard('demo_onEvent')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px btn-card-title">事件</text>
+        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 

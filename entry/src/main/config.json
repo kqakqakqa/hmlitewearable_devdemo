@@ -28,15 +28,17 @@
     "js": [
       {
         "pages": [
+          "pages/testJsHeap/testJsHeap",
           "pages/index/index",
           "pages/router/router",
           "pages/menu/menu",
-          "pages/menu/about/about",
-          "pages/menu/licenses/licenses",
+          "pages/menu_about/menu_about",
+          "pages/menu_licenses/menu_licenses",
+          "pages/menu_sponsor/menu_sponsor",
           "pages/devdemo_index/devdemo_index",
           "pages/demo_hmlFor/demo_hmlFor",
           "pages/demo_jsHeap/demo_jsHeap",
-          "pages/testJsHeap/testJsHeap"
+          "pages/demo_onEvent/demo_onEvent"
         ],
         "name": "default"
       }

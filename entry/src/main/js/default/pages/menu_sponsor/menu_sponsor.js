@@ -1,4 +1,4 @@
-console.info("pages/devdemo_index/devdemo_index onInit");
+console.info("pages/menu_sponsor/menu_sponsor onInit");
 
 export default {
   data: {
@@ -16,19 +16,14 @@ export default {
   onHide() {
     if (this.$refs.mainList.rotation) this.$refs.mainList.rotation({ focus: false });
   },
-  clickCard(v) {
+  clickBack() {
     $app.getImports().router.replace({
-      uri: "pages/" + v + "/" + v,
+      uri: "/pages/menu/menu",
     });
   },
 
-  swipeBack(data) {
-    if (data.direction === "right") return this.exitApp();
+  swipeBack(d) {
+    if (d.direction === "right") return this.clickBack();
   },
 
-  exitApp() {
-    $app.getImports().app.terminate();
-  },
-
-  nullFn: void 0,
 }

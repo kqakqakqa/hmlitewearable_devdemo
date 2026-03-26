@@ -11,7 +11,7 @@
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
       <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px;">
         <div style="width: 280px; height: 72px; align-items: center;">
-          <text class="text-38px">js heap</text>
+          <text class="text-38px">支持作者</text>
         </div>
         <div
           style="width: {{uiSizes.uiWidth}}px; height: 72px; justify-content: flex-end; background-color: transparent;">
@@ -22,16 +22,12 @@
       </stack>
     </list-item>
 
-    <!-- model jsHeap -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 114px; justify-content: center;">
-      <text style="width: {{uiSizes.screenWidth}}px; font-size: 30px; text-align: center;">
-        型号: {{model}}\njs heap: {{jsHeap}}\n{{doTest ? "将在下次启动时测试" : ""}}
-      </text>
+    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 126px;">
+      <text class="text-30px" style="height: 123px; text-align: center;">感谢你的支持！\n\(^▽^*)))\n这是我的爱发电：</text>
     </list-item>
 
-    <!-- btn -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 72px; flex-direction: column; align-items: center;">
-      <text on:click="clickBtn" class="ui-btn">{{doTest ? "取消" : "下次启动时测试"}}</text>
+    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 276px;">
+      <image style="width: 276px; height: 276px;" src="/common/ifdian.png"></image>
     </list-item>
 
     <list-item style="width: 0px; height: {{uiSizes.topMargin}}px; background-color: transparent;"></list-item>
