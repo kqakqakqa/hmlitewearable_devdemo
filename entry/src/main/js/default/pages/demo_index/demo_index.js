@@ -1,4 +1,4 @@
-console.info("pages/devdemo_index/devdemo_index onInit");
+console.info("pages/demo_index/demo_index onInit");
 
 export default {
   data: {

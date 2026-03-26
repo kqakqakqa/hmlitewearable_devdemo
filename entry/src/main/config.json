@@ -35,7 +35,7 @@
           "pages/menu_about/menu_about",
           "pages/menu_licenses/menu_licenses",
           "pages/menu_sponsor/menu_sponsor",
-          "pages/devdemo_index/devdemo_index",
+          "pages/demo_index/demo_index",
           "pages/demo_hmlFor/demo_hmlFor",
           "pages/demo_jsHeap/demo_jsHeap",
           "pages/demo_onEvent/demo_onEvent"

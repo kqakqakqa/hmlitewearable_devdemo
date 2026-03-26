@@ -41,7 +41,7 @@ export default {
 
     initImports(() => {
       $app.getImports().router.replace({
-        uri: "pages/devdemo_index/devdemo_index",
+        uri: "pages/demo_index/demo_index",
         direct: true,
       });
     });
