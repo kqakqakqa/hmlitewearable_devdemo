@@ -1,23 +1,18 @@
 <div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
-  <list ref="mainList" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <list ref="bindRotation" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
 
     <!-- timeBattery -->
-    <list-item
-      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px; align-items: flex-end; justify-content: center;">
-      <text class="text-30px" style="width: 280px; margin-bottom: 24px; text-align: center;">{{timeBatteryStr}}</text>
+    <list-item class="timeBatteryWrapper"
+      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
     </list-item>
 
     <!-- title -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
       <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px;">
-        <div style="width: 280px; height: 72px; align-items: center;">
-          <text class="text-38px">开放源代码许可</text>
-        </div>
-        <div
-          style="width: {{uiSizes.uiWidth}}px; height: 72px; justify-content: flex-end; background-color: transparent;">
-          <div on:click="clickBack" class="ui-round-btn">
-            <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
-          </div>
+        <text class="text-38px title-text">开放源代码许可</text>
+        <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
       </stack>
     </list-item>

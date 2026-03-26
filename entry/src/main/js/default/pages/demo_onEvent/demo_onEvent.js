@@ -34,7 +34,7 @@ export default {
   },
 
   relPosX(globalX) {
-    const offsetX = (this.uiSizes.screenWidth - 280) / 2;
+    const offsetX = (this.uiSizes.screenWidth - 276) / 2;
     return globalX - offsetX;
   },
 

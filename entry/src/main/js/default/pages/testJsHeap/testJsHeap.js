@@ -26,8 +26,8 @@ storage.get({
 });
 
 function alloc() {
-  chunks.push(new Uint8Array(1024));
-  size += 1024;
+  chunks.push(new Uint8Array(1000));
+  size += 1000;
 
   storage.set({
     key: "jsHeap",

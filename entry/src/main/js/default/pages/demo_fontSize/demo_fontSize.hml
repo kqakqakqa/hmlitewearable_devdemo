@@ -1,0 +1,51 @@
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; flex-direction: column;">
+
+  <!-- timeBattery -->
+  <div class="timeBatteryWrapper" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+    <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+  </div>
+
+  <!-- title -->
+  <div style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
+    <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+      <text class="text-38px title-text">文字大小</text>
+      <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+        <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+      </div>
+    </stack>
+  </div>
+
+  <!-- text -->
+  <div style="width: {{uiSizes.screenWidth}}px; height: 180px; justify-content: center;">
+    <stack style="width: 276px; height: 180px; background-color: #222; border-radius: 24px;">
+
+      <slider ref="bindRotation" on:change="onRotate" value="{{sliderValue}}" min="-1" max="1"
+        style="width: 0px; height: 0px; background-color: transparent;">
+      </slider>
+
+      <div
+        style="width: 276px; height: 180px; background-color: transparent; align-items: center; justify-content: center;">
+        <div
+          style="width: 276px; height: {{fontSize * 1.25}}px; background-color: lightslategray; align-items: center; justify-content: center;">
+          <text if="{{refreshText}}"
+            style="width: {{fontSize * 10}}px; font-size: {{fontSize}}px; text-align: center; background-color: lightsteelblue;">字0fjty□|</text>
+        </div>
+      </div>
+
+      <text class="text-30px" style="left: 12px; top: 12px; color: gray;">
+        fs: {{fontSize}}, h: {{fontSize * 1.25}}
+      </text>
+
+      <div on:click="{{changeFontSize(-1)}}" class="ui-round-btn"
+        style="left: 12px; top: 54px; background-color: #22ffffff;">
+        <text class="text-38px">-</text>
+      </div>
+
+      <div on:click="{{changeFontSize(1)}}" class="ui-round-btn"
+        style="left: 192px; top: 54px; background-color: #22ffffff;">
+        <text class="text-38px">+</text>
+      </div>
+
+    </stack>
+  </div>
+</div>

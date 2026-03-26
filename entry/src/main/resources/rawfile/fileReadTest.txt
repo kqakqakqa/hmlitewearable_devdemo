@@ -1,0 +1,3 @@
+对于轻量级智能穿戴（Lite Wearable），应用可以通过HarmonyOS提供的接口实现传感器、UI交互等常规业务的开发。开发者可以根据轻量级智能穿戴的特点，打造针对轻量级智能穿戴的独特应用。当前支持产品有：HUAWEI WATCH GT系列、Watch D系列、Fit系列、Watch Ultimate系列。
+在行内样式和选择器样式中，样式设置方式是静态的，即代码开发中设置的样式在程序运行的时候不能更改，这种方式限制了程序的显示效果。如果要在程序运行过程中动态地改变样式，需要用到动态绑定样式。动态绑定就是值和变量动态关联，随着值的变更而显示不同的效果。动态绑定的使用方式为“{{变量名}}”，其中变量名是js文件中data对象的属性值。目前动态绑定样式只支持绑定行内样式。
+在index.css文件中，对stackContainer的class，设置width和height为50%，背景色为白色，stack容器的宽高则均为父组件的一半。对button的class，设置width为父组件（stack容器）宽度的50%，height为stack容器高度的30%，top距离顶部为stack容器高度的10%，left距离左侧为stack容器宽度的10%；对button2的class，设置width为父组件（div容器）宽度的50%，height为div容器高度的20%，margin-top上方距离stack容器为div容器高度的2%。

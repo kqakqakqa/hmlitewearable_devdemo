@@ -1,0 +1,39 @@
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; flex-direction: column;">
+
+  <!-- timeBattery -->
+  <div class="timeBatteryWrapper" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+    <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+  </div>
+
+  <!-- title -->
+  <div style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
+    <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+      <text class="text-38px title-text">字体大小</text>
+      <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+        <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+      </div>
+    </stack>
+  </div>
+
+  <!-- text -->
+  <div style="width: {{uiSizes.screenWidth}}px; height: 180px; justify-content: center;">
+    <stack style="width: 276px; height: 180px; background-color: #222; border-radius: 12px;">
+
+      <slider ref="bindRotation" on:change="onRotate" value="0" min="-100" max="100"
+        style="width: 0px; height: 0px; background-color: transparent;">
+      </slider>
+
+      <div
+        style="width: 276px; height: 180px; background-color: transparent; align-items: center; justify-content: center;">
+        <text style="width: 276px; color: gray; font-size: 30px; text-align: center;">
+          {{status || "playground"}}
+        </text>
+      </div>
+
+      <image if="{{touchStatus !== 0}}" src="/common/hand_point_up_tap-36px.png"
+        style="left: {{touchX - 18}}px; top: {{touchY - 18}}px; width: 36px; height: 36px; opacity: {{touchStatus === -1 ? '0.5' : 1}};">
+      </image>
+
+    </stack>
+  </div>
+</div>

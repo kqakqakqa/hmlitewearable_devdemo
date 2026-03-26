@@ -1,19 +1,14 @@
+/* 单行 ×1.25, 换行 ×1.375 */
 .text-30px {
-  /* total height: 42px */
-  height: 39px;
-  margin-top: 2px;
-  margin-bottom: 1px;
+  /* 单行 37.5px, 换行 41.25px */
+  height: 38px;
   font-size: 30px;
-  text-align: left;
 }
 
 .text-38px {
-  /* total height: 54px */
-  height: 50px;
-  margin-top: 2px;
-  margin-bottom: 2px;
+  /* 单行 47.5px, 换行 52.25px */
+  height: 48px;
   font-size: 38px;
-  text-align: left;
 }
 
 .ui-btn {
@@ -31,7 +26,6 @@
 .ui-round-btn {
   width: 72px;
   height: 72px;
-  margin-left: 12px;
   border-radius: 72px;
   align-items: center;
   justify-content: center;
@@ -64,6 +58,21 @@
   width: 30px;
   height: 30px;
   margin-right: 24px;
+}
+
+.timeBatteryWrapper {
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.timeBatteryStr {
+  width: 276px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.title-text {
+  top: 12px;
 }
 
 .option-list {

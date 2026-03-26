@@ -11,10 +11,10 @@ export default {
     });
   },
   onShow() {
-    if (this.$refs.mainList.rotation) this.$refs.mainList.rotation({ focus: true });
+    if (this.$refs.bindRotation.rotation) this.$refs.bindRotation.rotation({ focus: true });
   },
   onHide() {
-    if (this.$refs.mainList.rotation) this.$refs.mainList.rotation({ focus: false });
+    if (this.$refs.bindRotation.rotation) this.$refs.bindRotation.rotation({ focus: false });
   },
   pageTo(p) {
     $app.getImports().router.replace({
