@@ -1,1 +1,12 @@
 @import "../../common.css";
+
+.btn {
+  width: 138px;
+  height: 36px;
+  margin-bottom: 6px;
+  margin-right: 6px;
+  background-color: #222;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 30px;
+}

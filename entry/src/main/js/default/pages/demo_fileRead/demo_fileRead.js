@@ -5,13 +5,18 @@ export default {
     uiSizes: $app.getImports().uiSizes,
     timeBatteryStr: "",
 
-
+    readPos: 0,
+    text: "",
+    utf: "",
+    binary: "",
   },
 
   onInit() {
     $app.getImports().headerTimeBattery.subscribe(() => {
       this.timeBatteryStr = $app.getImports().headerTimeBattery.time + "  " + $app.getImports().headerTimeBattery.battery;
     });
+
+    this.readText();
   },
 
   onShow() {
@@ -22,13 +27,36 @@ export default {
     if (this.$refs.bindRotation.rotation) this.$refs.bindRotation.rotation({ focus: false });
   },
 
-  onRotate(e) {
-    console.info(JSON.stringify(e));
-    this.rotateStatus = e.value;
-    this.$refs.bindRotation.value = 0;
-    this.$refs.bindRotation.progress = 0;
-    e.value = 0;
-    e.progress = 0;
+  readText() {
+    $app.getImports().file.readText({
+      uri: "internal://app/rawfile/fileReadTest.txt",
+      position: this.readPos,
+      length: 30,
+      fail: (data, code) => {
+        this.text = code + " " + data;
+      },
+      success: d => {
+        this.text = textStr(d.text);
+        this.utf = textUtf(d.text);
+      }
+    });
+
+    $app.getImports().file.readArrayBuffer({
+      uri: "internal://app/rawfile/fileReadTest.txt",
+      position: this.readPos,
+      length: 30,
+      fail: (data, code) => {
+        this.text = code + " " + data;
+      },
+      success: d => {
+        this.binary = bufStr(d.buffer);
+      }
+    });
+  },
+
+  changeReadPos(v) {
+    this.readPos = Math.max(this.readPos + v, 0);
+    this.readText();
   },
 
   clickBack() {
@@ -40,4 +68,29 @@ export default {
   swipeBack(d) {
     if (d.direction === "right") return this.clickBack();
   },
+}
+
+function textStr(str) {
+  // decoder: b12345678 c12345678 d12345678 -> b5678c3456 c78d345678
+  const result = [];
+  for (let i = 0; i < str.length; i++) {
+    result.push(String.fromCharCode(str.charCodeAt(i)));
+  }
+  return result.join("");
+}
+
+function textUtf(str) {
+  const result = [];
+  for (let i = 0; i < str.length; i++) {
+    result.push(("0000" + str.charCodeAt(i).toString(16)).slice(-4));
+  }
+  return result.join(" ");
+}
+
+function bufStr(buf) {
+  const result = [];
+  for (let i = 0; i < buf.length; i++) {
+    result.push(buf[i].toString(16));
+  }
+  return result.join(" ");
 }

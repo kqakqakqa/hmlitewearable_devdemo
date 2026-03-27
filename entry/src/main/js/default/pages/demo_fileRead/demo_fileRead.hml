@@ -1,39 +1,56 @@
-<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; flex-direction: column;">
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <list ref="bindRotation" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
 
-  <!-- timeBattery -->
-  <div class="timeBatteryWrapper" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
-    <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
-  </div>
+    <!-- timeBattery -->
+    <list-item class="timeBatteryWrapper"
+      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+    </list-item>
 
-  <!-- title -->
-  <div style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
-    <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px;">
-      <text class="text-38px title-text">字体大小</text>
-      <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
-        <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
-      </div>
-    </stack>
-  </div>
+    <!-- title -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
+      <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+        <text class="text-38px title-text">文本读取</text>
+        <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+        </div>
+      </stack>
+    </list-item>
 
-  <!-- text -->
-  <div style="width: {{uiSizes.screenWidth}}px; height: 180px; justify-content: center;">
-    <stack style="width: 276px; height: 180px; background-color: #222; border-radius: 12px;">
-
-      <slider ref="bindRotation" on:change="onRotate" value="0" min="-100" max="100"
-        style="width: 0px; height: 0px; background-color: transparent;">
-      </slider>
-
+    <!-- text -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 91px; justify-content: center;">
       <div
-        style="width: 276px; height: 180px; background-color: transparent; align-items: center; justify-content: center;">
-        <text style="width: 276px; color: gray; font-size: 30px; text-align: center;">
-          {{status || "playground"}}
-        </text>
+        style="width: {{uiSizes.uiWidth}}px; height: 79px; background-color: #222; border-radius: 12px; align-items: center; padding: 6px;">
+        <text class="text-30px" style="width: {{uiSizes.uiWidth}}px; height: 79px;">{{text}}</text>
       </div>
+    </list-item>
 
-      <image if="{{touchStatus !== 0}}" src="/common/hand_point_up_tap-36px.png"
-        style="left: {{touchX - 18}}px; top: {{touchY - 18}}px; width: 36px; height: 36px; opacity: {{touchStatus === -1 ? '0.5' : 1}};">
-      </image>
+    <!-- text -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 186px; justify-content: center;">
+      <div
+        style="width: {{uiSizes.uiWidth}}px; height: 174px; background-color: #222; border-radius: 12px; align-items: center; padding: 6px;">
+        <text class="text-30px" style="width: {{uiSizes.uiWidth}}px; height: 174px;">{{utf}}</text>
+      </div>
+    </list-item>
 
-    </stack>
-  </div>
+    <!-- binary -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 215px; justify-content: center;">
+      <div
+        style="width: {{uiSizes.uiWidth}}px; height: 203px; background-color: #222; border-radius: 12px; align-items: center; padding: 6px;">
+        <text class="text-30px" style="width: {{uiSizes.uiWidth}}px; height: 203px;">{{binary}}</text>
+      </div>
+    </list-item>
+
+    <!-- btn -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 72px; justify-content: center;">
+      <div style="width: {{uiSizes.uiWidth}}px; height: 378px; flex-wrap: wrap;">
+        <text on:click="{{changeReadPos(-1)}}" class="btn">-1</text>
+        <text class="text-30px" style="margin-right: 6px;">{{readPos}}</text>
+        <text on:click="{{changeReadPos(1)}}" class="btn">+1</text>
+      </div>
+    </list-item>
+
+    <list-item style="width: 0px; height: {{uiSizes.topMargin}}px; background-color: transparent;"></list-item>
+
+  </list>
 </div>

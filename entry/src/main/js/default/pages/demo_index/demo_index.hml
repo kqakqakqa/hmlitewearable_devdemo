@@ -47,7 +47,7 @@
 
     <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
       <div on:click="{{clickCard('demo_fileRead')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">fileRead</text>
+        <text class="text-30px btn-card-title">文本读取</text>
         <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
