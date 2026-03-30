@@ -53,6 +53,13 @@
       </div>
     </list-item>
 
+    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="{{clickCard('demo_fetch')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px btn-card-title">fetch</text>
+        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+      </div>
+    </list-item>
+
     <list-item style="width: 0px; height: {{uiSizes.topMargin}}px; background-color: transparent;"></list-item>
 
   </list>

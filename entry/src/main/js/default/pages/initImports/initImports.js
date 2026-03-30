@@ -14,7 +14,7 @@ const imports = {
   brightness: requireNative("system.brightness"),
   // configuration: requireNative("system.configuration"),
   device: requireNative("system.device"),
-  // fetch: requireNative("system.fetch"),
+  fetch: requireNative("system.fetch"),
   file: requireNative("system.file"),
   // geolocation: requireNative("system.geolocation"),
   router: router, // requireNative("system.router"),

@@ -1,0 +1,36 @@
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <list ref="bindRotation" on:swipe="swipeBack"
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+
+    <!-- timeBattery -->
+    <list-item class="timeBatteryWrapper"
+      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+    </list-item>
+
+    <!-- title -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
+      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+        <text class="text-38px title-text">fetch</text>
+        <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+        </div>
+      </stack>
+    </list-item>
+
+    <!-- model fetchSize -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 174px; justify-content: center;">
+      <text class="text-30px" style="width: {{uiSizes.screenWidth}}px; height: 162px; text-align: center;">
+        型号: {{model}}\n最大数据量: {{fetchSize}}\n{{msg}}
+      </text>
+    </list-item>
+
+    <!-- btn -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 74px; flex-direction: column; align-items: center;">
+      <text on:click="clickTest" class="ui-btn">{{isTesting ? "取消" : "测试"}}</text>
+    </list-item>
+
+    <list-item style="width: 0px; height: {{uiSizes.topMargin}}px; background-color: transparent;"></list-item>
+
+  </list>
+</div>
