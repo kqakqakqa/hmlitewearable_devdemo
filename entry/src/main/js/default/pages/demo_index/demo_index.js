@@ -22,8 +22,8 @@ export default {
     });
   },
 
-  swipeBack(data) {
-    if (data.direction === "right") return this.exitApp();
+  swipeBack(d) {
+    if (d.direction === "right") return this.exitApp();
   },
 
   exitApp() {

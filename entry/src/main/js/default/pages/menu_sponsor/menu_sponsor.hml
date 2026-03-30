@@ -1,5 +1,6 @@
-<div on:swipe="swipeBack" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
-  <list ref="bindRotation" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <list ref="bindRotation" on:swipe="swipeBack"
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
 
     <!-- timeBattery -->
     <list-item class="timeBatteryWrapper"

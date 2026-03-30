@@ -1,5 +1,6 @@
-<div on:swipe="swipeBack" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
-  <list ref="bindRotation" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <list ref="bindRotation" on:swipe="swipeBack"
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
 
     <!-- timeBattery -->
     <list-item class="timeBatteryWrapper"
@@ -18,14 +19,14 @@
     </list-item>
 
     <!-- model jsHeap -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 114px; justify-content: center;">
-      <text style="width: {{uiSizes.screenWidth}}px; font-size: 30px; text-align: center;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 132px; justify-content: center;">
+      <text class="text-30px" style="width: {{uiSizes.screenWidth}}px; height: 120px; text-align: center;">
         型号: {{model}}\njs heap: {{jsHeap}}\n{{doTest ? "将在下次启动时测试" : ""}}
       </text>
     </list-item>
 
     <!-- btn -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 72px; flex-direction: column; align-items: center;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 74px; flex-direction: column; align-items: center;">
       <text on:click="clickBtn" class="ui-btn">{{doTest ? "取消" : "下次启动时测试"}}</text>
     </list-item>
 

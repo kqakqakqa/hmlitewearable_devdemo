@@ -64,7 +64,3 @@ export default {
     if (d.direction === "right") return this.clickBack();
   },
 }
-
-function getRnd() {
-  return Math.floor(Math.random() * 10);
-}

@@ -12,11 +12,11 @@
 }
 
 .ui-btn {
-  /* total height: 72px */
+  /* total height: 61.5px */
   width: 240px;
-  height: 60px;
-  margin-top: 12px;
+  height: 62px;
   padding-top: 12px;
+  padding-bottom: 12px;
   background-color: #222;
   border-radius: 24px;
   text-align: center;
