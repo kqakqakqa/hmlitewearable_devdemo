@@ -26,7 +26,18 @@ const _this = {
                 let i = 0;
                 function checkBundleName() {
                   console.info("checkBundleName");
-                  if (i >= list.length) return onDone();
+
+                  if (i >= list.length) {
+                    console.info("bundleName not found, setting to \"-\"");
+                    _this.bundleName = "-";
+                    $app.getImports().storage.set({
+                      key: "bundleName",
+                      value: "-",
+                      success: onDone,
+                    });
+                    return;
+                  }
+
                   const bundleName = list[i++].uri.split("/").slice(-1)[0];
                   console.info("bundleName " + i + ": " + bundleName);
                   $app.getImports().file.readText({

@@ -7,6 +7,8 @@ export default {
 
     status: "",
 
+    sliderValue: 0,
+
     rotateStatus: 0,
     swipeStatus: "",
 
@@ -45,11 +47,13 @@ export default {
 
   onRotate(e) {
     console.info(JSON.stringify(e));
-    this.rotateStatus = e.value;
-    this.$refs.bindRotation.value = 0;
-    this.$refs.bindRotation.progress = 0;
-    e.value = 0;
-    e.progress = 0;
+    const value = e.value || e.progress || 0;
+
+    this.sliderValue = NaN;
+    this.sliderValue = 0;
+
+    const step = value > 0 ? 1 : value < 0 ? -1 : 0;
+    this.rotateStatus = step;
   },
 
   onClick(e) {

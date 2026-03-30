@@ -1,6 +1,4 @@
-// import file from "../../file.js";
 import router from "../../router.js";
-// import storage from "../../storage.js";
 
 // import appName from "../../appName.js";
 import bundleName from "../../bundleName.js";
@@ -33,18 +31,13 @@ const imports = {
   // lookupDict: lookupDict,
 };
 
-console.info("pages/index/index onInit");
+console.info("pages/initImports/initImports onInit");
 
 export default {
   onInit() {
     $app.setImports(imports);
 
-    initImports(() => {
-      $app.getImports().router.replace({
-        uri: "pages/demo_index/demo_index",
-        direct: true,
-      });
-    });
+    initImports(() => router.replace({ uri: "pages/demo_index/demo_index" }));
   },
 }
 

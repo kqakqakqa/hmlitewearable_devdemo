@@ -15,6 +15,11 @@
     </stack>
   </div>
 
+  <!-- rotation -->
+  <slider ref="bindRotation" on:change="onRotate" value="{{sliderValue}}" min="-1" max="1"
+    style="width: 0px; height: 0px; background-color: transparent;">
+  </slider>
+
   <!-- playground -->
   <!-- 
   playground base coord:
@@ -27,10 +32,6 @@
       on:touchend="onTouchEnd" on:touchcancel="onTouchCancel" on:pinchstart="onPinchStart"
       on:pinchupdate="onPinchUpdate" on:pinchend="onPinchEnd" on:pinchcancel="onPinchCancel"
       style="width: 276px; height: 180px; background-color: #222; border-radius: 24px;">
-
-      <slider ref="bindRotation" on:change="onRotate" value="0" min="-100" max="100"
-        style="width: 0px; height: 0px; background-color: transparent;">
-      </slider>
 
       <div
         style="width: 276px; height: 180px; background-color: transparent; align-items: center; justify-content: center;">

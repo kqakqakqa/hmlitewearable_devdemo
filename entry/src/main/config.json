@@ -29,7 +29,7 @@
       {
         "pages": [
           "pages/testJsHeap/testJsHeap",
-          "pages/index/index",
+          "pages/initImports/initImports",
           "pages/router/router",
           "pages/menu/menu",
           "pages/menu_about/menu_about",

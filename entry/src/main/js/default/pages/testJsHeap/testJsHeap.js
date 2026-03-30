@@ -19,7 +19,7 @@ storage.get({
       });
     } else {
       requireNative("system.router").replace({
-        uri: "pages/index/index",
+        uri: "pages/initImports/initImports",
       });
     }
   },
