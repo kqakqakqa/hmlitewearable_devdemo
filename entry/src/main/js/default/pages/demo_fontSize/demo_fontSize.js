@@ -1,5 +1,8 @@
 console.info("pages/demo_fontSize/demo_fontSize onInit");
 
+const texts = ["1234567890", "qwertyuiop", "asdfghjkl", "zxcvbnm", "QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM", "[]{}:;\"\',.~`", "<>/?!@#$%^", "&*()_+-=|\\", "一二三四五六七八九十", "壹贰叁肆伍陆柒捌玖拾"];
+let showIndex = 0;
+
 export default {
   data: {
     uiSizes: $app.getImports().uiSizes,
@@ -8,6 +11,7 @@ export default {
     sliderValue: 0,
     fontSize: 30,
     refreshText: true,
+    text: texts[showIndex],
   },
 
   onInit() {
@@ -41,6 +45,12 @@ export default {
     this.fontSize = Math.min(Math.max(this.fontSize + v, 0), 120);
     this.refreshText = false;
     setTimeout(() => { this.refreshText = true }, 0);
+  },
+
+  changeText() {
+    showIndex++;
+    if (showIndex > texts.length) showIndex = 0;
+    this.text = texts[showIndex];
   },
 
   clickBack() {

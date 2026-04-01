@@ -30,7 +30,7 @@
         <div
           style="width: 276px; height: {{fontSize * 1.25}}px; background-color: lightslategray; align-items: center; justify-content: center;">
           <text if="{{refreshText}}"
-            style="width: {{fontSize * 10}}px; font-size: {{fontSize}}px; text-align: center; background-color: lightsteelblue;">字0fjty□|</text>
+            style="width: {{fontSize * 20}}px; font-size: {{fontSize}}px; text-align: center; background-color: lightsteelblue;">{{text}}</text>
         </div>
       </div>
 
@@ -39,12 +39,16 @@
       </text>
 
       <div on:click="{{changeFontSize(-1)}}" class="ui-round-btn"
-        style="left: 12px; top: 54px; background-color: #22ffffff;">
+        style="left: 12px; top: 96px; background-color: #22ffffff;">
         <text class="text-38px">-</text>
       </div>
 
+      <div on:click="changeText" class="ui-round-btn" style="left: 102px; top: 96px; background-color: #22ffffff;">
+        <text class="text-38px">~</text>
+      </div>
+
       <div on:click="{{changeFontSize(1)}}" class="ui-round-btn"
-        style="left: 192px; top: 54px; background-color: #22ffffff;">
+        style="left: 192px; top: 96px; background-color: #22ffffff;">
         <text class="text-38px">+</text>
       </div>
 

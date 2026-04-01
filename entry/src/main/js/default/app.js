@@ -5,7 +5,7 @@ export default {
   onCreate: () => {
     console.info("app.js onCreate");
     requireNative("system.router").replace({
-      uri: "pages/testJsHeap/TestJsHeap",
+      uri: "pages/testJsHeap/testJsHeap",
     });
   },
 
