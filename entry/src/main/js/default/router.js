@@ -10,8 +10,10 @@ const _this = {
    *
    */
   replace(d) {
+    console.info("router.replace to " + d.uri);
+
     setTimeout(() => requireNative("system.router").replace({
-      uri: "/pages/router/router",
+      uri: "pages/router/router",
       params: {
         uri: d.uri,
         params: d.params || {},

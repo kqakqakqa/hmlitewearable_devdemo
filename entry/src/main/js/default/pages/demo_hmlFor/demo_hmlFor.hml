@@ -29,27 +29,27 @@
     <!-- btn -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 378px; justify-content: center;">
       <div style="width: {{uiSizes.uiWidth}}px; height: 378px; flex-wrap: wrap;">
-        <text on:click="{{clickBtn('same')}}" class="btn">=arr</text>
-        <text on:click="{{clickBtn('push')}}" class="btn">push</text>
-        <text on:click="{{clickBtn('pop')}}" class="btn">pop</text>
-        <text on:click="{{clickBtn('shift')}}" class="btn">shift</text>
-        <text on:click="{{clickBtn('unshift')}}" class="btn">unshift</text>
-        <text on:click="{{clickBtn('reverse')}}" class="btn">reverse</text>
-        <text on:click="{{clickBtn('sort')}}" class="btn" style="color: gold;">sort</text>
+        <text on:click="clickBtn('same')" class="btn">=arr</text>
+        <text on:click="clickBtn('push')" class="btn">push</text>
+        <text on:click="clickBtn('pop')" class="btn">pop</text>
+        <text on:click="clickBtn('shift')" class="btn">shift</text>
+        <text on:click="clickBtn('unshift')" class="btn">unshift</text>
+        <text on:click="clickBtn('reverse')" class="btn">reverse</text>
+        <text on:click="clickBtn('sort')" class="btn" style="color: gold;">sort</text>
 
-        <text on:click="{{clickBtn('forEachV')}}" class="btn">forEa(v)</text>
-        <text on:click="{{clickBtn('forEachI')}}" class="btn">forEa(v,i)</text>
-        <text on:click="{{clickBtn('forOf')}}" class="btn" style="color: orangered;">for...of</text>
-        <text on:click="{{clickBtn('forIn')}}" class="btn">for...in</text>
-        <text on:click="{{clickBtn('forLet')}}" class="btn">for(i)</text>
+        <text on:click="clickBtn('forEachV')" class="btn">forEa(v)</text>
+        <text on:click="clickBtn('forEachI')" class="btn">forEa(v,i)</text>
+        <text on:click="clickBtn('forOf')" class="btn" style="color: orangered;">for...of</text>
+        <text on:click="clickBtn('forIn')" class="btn">for...in</text>
+        <text on:click="clickBtn('forLet')" class="btn">for(i)</text>
 
-        <text on:click="{{clickBtn('index')}}" class="btn">arr[0]=</text>
-        <text on:click="{{clickBtn('fill')}}" class="btn" style="color: coral;">fill</text>
-        <text on:click="{{clickBtn('splice')}}" class="btn">splice</text>
+        <text on:click="clickBtn('index')" class="btn">arr[0]=</text>
+        <text on:click="clickBtn('fill')" class="btn" style="color: coral;">fill</text>
+        <text on:click="clickBtn('splice')" class="btn">splice</text>
 
-        <text on:click="{{clickBtn('from')}}" class="btn" style="color: coral;">=Ar.from</text>
-        <text on:click="{{clickBtn('assign')}}" class="btn">=[]</text>
-        <text on:click="{{clickBtn('len0')}}" class="btn" style="color: gold;">len=0</text>
+        <text on:click="clickBtn('from')" class="btn" style="color: coral;">=Ar.from</text>
+        <text on:click="clickBtn('assign')" class="btn">=[]</text>
+        <text on:click="clickBtn('len0')" class="btn" style="color: gold;">len=0</text>
       </div>
     </list-item>
 

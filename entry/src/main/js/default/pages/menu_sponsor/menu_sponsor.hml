@@ -18,11 +18,11 @@
       </stack>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 132px;">
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 132px;">
       <text class="text-30px" style="height: 120px; text-align: center;">感谢你的支持！\n\(^▽^*)))\n这是我的爱发电：</text>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 276px;">
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 276px;">
       <image style="width: 276px; height: 276px;" src="/common/ifdian.png"></image>
     </list-item>
 

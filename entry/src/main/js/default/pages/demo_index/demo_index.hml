@@ -12,51 +12,51 @@
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
         <text class="text-38px title-text">DevDemo</text>
-        <div on:click="{{clickCard('menu')}}" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+        <div on:click="clickCard('menu')" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/dot_grid_2x2-44px.png"></image>
         </div>
       </stack>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="{{clickCard('demo_hmlFor')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">列表渲染</text>
-        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickCard('demo_hmlFor')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">列表渲染</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="{{clickCard('demo_jsHeap')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">js heap</text>
-        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickCard('demo_jsHeap')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">js heap</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="{{clickCard('demo_onEvent')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">事件</text>
-        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickCard('demo_onEvent')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">事件</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="{{clickCard('demo_fontSize')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">文字大小</text>
-        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickCard('demo_fontSize')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">文字大小</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="{{clickCard('demo_fileRead')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">文本读取</text>
-        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickCard('demo_fileRead')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">文本读取</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="{{clickCard('demo_fetch')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">fetch</text>
-        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickCard('demo_fetch')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">fetch</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 

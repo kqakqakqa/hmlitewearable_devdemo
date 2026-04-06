@@ -38,7 +38,7 @@
         fs: {{fontSize}}, h: {{fontSize * 1.25}}
       </text>
 
-      <div on:click="{{changeFontSize(-1)}}" class="ui-round-btn"
+      <div on:click="changeFontSize(-1)" class="ui-round-btn"
         style="left: 12px; top: 96px; background-color: #22ffffff;">
         <text class="text-38px">-</text>
       </div>
@@ -47,7 +47,7 @@
         <text class="text-38px">~</text>
       </div>
 
-      <div on:click="{{changeFontSize(1)}}" class="ui-round-btn"
+      <div on:click="changeFontSize(1)" class="ui-round-btn"
         style="left: 192px; top: 96px; background-color: #22ffffff;">
         <text class="text-38px">+</text>
       </div>

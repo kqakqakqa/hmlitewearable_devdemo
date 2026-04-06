@@ -55,7 +55,7 @@ export default {
 
   clickBack() {
     $app.getImports().router.replace({
-      uri: "/pages/demo_index/demo_index",
+      uri: "pages/demo_index/demo_index",
     });
   },
 

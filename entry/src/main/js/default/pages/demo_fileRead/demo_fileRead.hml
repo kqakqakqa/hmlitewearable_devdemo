@@ -45,9 +45,9 @@
     <!-- btn -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 72px; justify-content: center;">
       <div style="width: {{uiSizes.uiWidth}}px; height: 378px; flex-wrap: wrap;">
-        <text on:click="{{changeReadPos(-1)}}" class="btn">-1</text>
+        <text on:click="changeReadPos(-1)" class="btn">-1</text>
         <text class="text-30px" style="margin-right: 6px;">{{readPos}}</text>
-        <text on:click="{{changeReadPos(1)}}" class="btn">+1</text>
+        <text on:click="changeReadPos(1)" class="btn">+1</text>
       </div>
     </list-item>
 

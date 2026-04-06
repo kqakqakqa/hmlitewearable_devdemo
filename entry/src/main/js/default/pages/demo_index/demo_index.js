@@ -29,6 +29,4 @@ export default {
   exitApp() {
     $app.getImports().app.terminate();
   },
-
-  nullFn: void 0,
 }

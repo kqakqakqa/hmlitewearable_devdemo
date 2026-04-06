@@ -18,31 +18,31 @@
       </stack>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="{{pageTo('menu_about')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">关于</text>
-        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="pageTo('menu_about')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">关于</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="{{pageTo('menu_licenses')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">开放源代码许可</text>
-        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="pageTo('menu_licenses')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">开源代码许可</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="{{pageTo('menu_sponsor')}}" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">支持作者</text>
-        <image class="btn-card-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="pageTo('menu_sponsor')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">支持作者</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
-    <list-item class="btn-card-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="exitApp" class="btn-card" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px btn-card-title">退出应用</text>
-        <image class="btn-card-go-icon" src="/common/leave_home_fill-30px.png">
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="exitApp" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">退出应用</text>
+        <image class="text-btnCard-go-icon" src="/common/leave_home_fill-30px.png">
         </image>
       </div>
     </list-item>

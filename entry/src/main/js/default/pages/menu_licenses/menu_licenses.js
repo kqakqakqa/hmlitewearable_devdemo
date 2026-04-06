@@ -19,7 +19,7 @@ export default {
 
   clickBack() {
     $app.getImports().router.replace({
-      uri: "/pages/menu/menu",
+      uri: "pages/menu/menu",
     });
   },
 

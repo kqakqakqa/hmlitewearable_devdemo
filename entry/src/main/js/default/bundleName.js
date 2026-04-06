@@ -38,7 +38,7 @@ const _this = {
                     return;
                   }
 
-                  const bundleName = list[i++].uri.split("/").slice(-1)[0];
+                  const bundleName = list[i++].uri.split("/").pop();
                   console.info("bundleName " + i + ": " + bundleName);
                   $app.getImports().file.readText({
                     uri: "internal://app\\../" + bundleName + "/kvstore/bundleNameMarker",

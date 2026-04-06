@@ -31,7 +31,7 @@ const imports = {
   // lookupDict: lookupDict,
 };
 
-console.info("pages/initImports/initImports onInit");
+console.info("pages/index/index onInit");
 
 export default {
   onInit() {

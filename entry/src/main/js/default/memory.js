@@ -34,7 +34,7 @@ function load(key, then) {
       _this[key] = JSON.parse(d.text);
     },
     complete: () => {
-      return then && then(_this[key]);
+      return then && setTimeout(() => then(_this[key]), 0);
     },
   });
 }
@@ -50,7 +50,7 @@ function save(key, then) {
       console.info(`file.writeText ${key} success`);
     },
     complete: () => {
-      return then && then(_this[key]);
+      return then && setTimeout(() => then(_this[key]), 0);
     }
   });
 }

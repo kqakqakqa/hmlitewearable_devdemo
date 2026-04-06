@@ -1,7 +1,5 @@
 console.info("testJsHeap.js onImport");
 
-export default {}
-
 const chunks = [];
 let size = 0;
 
@@ -19,7 +17,7 @@ storage.get({
       });
     } else {
       requireNative("system.router").replace({
-        uri: "pages/initImports/initImports",
+        uri: "pages/index/index",
       });
     }
   },
@@ -35,3 +33,5 @@ function alloc() {
     success: setTimeout(alloc, 0),
   });
 }
+
+export default {};
