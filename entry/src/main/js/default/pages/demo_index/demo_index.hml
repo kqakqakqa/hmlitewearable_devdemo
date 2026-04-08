@@ -54,8 +54,8 @@
     </list-item>
 
     <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="clickCard('demo_fetch')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">fetch</text>
+      <div on:click="clickCard('demo_fetchSize')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">fetch大小</text>
         <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
