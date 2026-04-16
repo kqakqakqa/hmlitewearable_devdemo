@@ -29,7 +29,7 @@ function alloc() {
 
   storage.set({
     key: "jsHeap",
-    value: "" + size,
+    value: String(size),
     success: setTimeout(alloc, 0),
   });
 }

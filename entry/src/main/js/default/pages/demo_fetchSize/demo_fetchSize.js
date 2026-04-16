@@ -78,7 +78,7 @@ export default {
 
   clickTest() {
     if (this.isTesting) return this.stopTest();
-    if (!$app.getImports().fetch) return this.msg = "设备不支持fetch"
+    if (!$app.getImports().fetch) return this.msg = "设备不支持fetch";
 
     this.isStopping = false;
     this.isTesting = true;
@@ -151,7 +151,7 @@ export default {
 
       $app.getImports().storage.set({
         key: "fetchSize",
-        value: "" + this.fetchSize,
+        value: String(this.fetchSize),
       });
     }
   },

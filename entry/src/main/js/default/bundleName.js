@@ -14,7 +14,7 @@ const _this = {
           return onDone();
         }
 
-        const marker = "" + Date.now();
+        const marker = String(Date.now());
         $app.getImports().storage.set({
           key: "bundleNameMarker",
           value: marker,

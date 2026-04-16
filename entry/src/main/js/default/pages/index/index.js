@@ -6,7 +6,7 @@ import bundleName from "../../bundleName.js";
 import headerTimeBattery from "../../headerTimeBattery.js";
 import memory from "../../memory.js";
 import uiSizes from "../../uiSizes.js";
-// import lookupDict from "../../lookupDictV4.js";
+// import lookupDict from "../../lookupDictV5.js";
 
 const imports = {
   app: requireNative("system.app"),
