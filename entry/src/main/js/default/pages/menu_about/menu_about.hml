@@ -18,11 +18,13 @@
       </stack>
     </list-item>
 
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 250px; flex-direction: column; align-items: center;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 290px; flex-direction: column; align-items: center;">
       <image src="/common/icon.png" style="width: 114px; height: 114px; margin-bottom: 12px;"></image>
       <text class="text-38px">DevDemo</text>
       <text class="text-30px">v{{versionName}}</text>
-      <text class="text-30px" style="color: gray;">作者：kqakqakqa</text>
+      <text class="text-30px" style="height: 78px; text-align: center; color: gray;">
+        Copyright (c) 2026\nkqakqakqa
+      </text>
     </list-item>
 
     <list-item style="width: 0px; height: {{uiSizes.topMargin}}px; background-color: transparent;"></list-item>

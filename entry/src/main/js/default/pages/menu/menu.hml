@@ -25,12 +25,12 @@
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+    <!-- <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
       <div on:click="pageTo('menu_licenses')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
         <text class="text-30px text-btnCard-title">开源代码许可</text>
         <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
-    </list-item>
+    </list-item> -->
 
     <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
       <div on:click="pageTo('menu_sponsor')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
