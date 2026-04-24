@@ -19,7 +19,13 @@ function init(onDone) {
     load(key, next);
   }
 
-  next();
+  $app.getImports().file.mkdir({
+    uri: "internal://app/kvstore",
+    fail: (data, code) => {
+      console.error(`file.mkdir kvstore failed: ${code} ${data}`);
+    },
+    complete: next,
+  })
 }
 
 function load(key, then) {

@@ -47,7 +47,7 @@
       </div>
     </list-item>
 
-    <list-item style="width: 0px; height: {{uiSizes.topMargin}}px; background-color: transparent;"></list-item>
+    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
 
   </list>
 </div>

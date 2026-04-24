@@ -27,7 +27,7 @@
     </list-item>
 
     <!-- btn -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 378px; justify-content: center;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 390px; justify-content: center;">
       <div style="width: {{uiSizes.uiWidth}}px; height: 378px; flex-wrap: wrap;">
         <text on:click="clickBtn('same')" class="btn">=arr</text>
         <text on:click="clickBtn('push')" class="btn">push</text>
@@ -53,7 +53,7 @@
       </div>
     </list-item>
 
-    <list-item style="width: 0px; height: {{uiSizes.topMargin}}px; background-color: transparent;"></list-item>
+    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
 
   </list>
 </div>

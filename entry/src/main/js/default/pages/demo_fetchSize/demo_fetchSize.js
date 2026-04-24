@@ -2,6 +2,8 @@ console.info("pages/demo_fetch/demo_fetch onInit");
 
 const maxTrial = 3;
 
+let isStopping = false;
+
 export default {
   data: {
     uiSizes: $app.getImports().uiSizes,
@@ -12,7 +14,6 @@ export default {
     msg: "",
 
     isTesting: false,
-    isStopping: false,
 
     retryCount: 0,
 
@@ -72,7 +73,7 @@ export default {
   },
 
   stopTest() {
-    this.isStopping = true;
+    isStopping = true;
     this.isTesting = false;
   },
 
@@ -80,7 +81,7 @@ export default {
     if (this.isTesting) return this.stopTest();
     if (!$app.getImports().fetch) return this.msg = "设备不支持fetch";
 
-    this.isStopping = false;
+    isStopping = false;
     this.isTesting = true;
 
     this.retryCount = 0;
@@ -93,7 +94,7 @@ export default {
   },
 
   tryFetch() {
-    if (this.isStopping) return;
+    if (isStopping) return;
 
     this.msg = (this.retryCount > 0 ? ("重试×" + (this.retryCount) + "：") : "测试：") + this.currentTest + "字节";
 
@@ -102,7 +103,7 @@ export default {
       method: "GET",
       responseType: "text",
       fail: (data, code) => {
-        if (this.isStopping) return;
+        if (isStopping) return;
 
         if (code === -76 || data === "WebClient common error") {
           this.retryCount = 0;
@@ -119,7 +120,7 @@ export default {
         return this.msg = "fetch失败：" + code + " " + data;
       },
       success: () => {
-        if (this.isStopping) return;
+        if (isStopping) return;
 
         this.retryCount = 0;
 
@@ -138,7 +139,7 @@ export default {
   },
 
   nextBinaryStep() {
-    if (this.isStopping) return;
+    if (isStopping) return;
 
     if (this.low <= this.high) {
       this.currentTest = Math.floor((this.low + this.high) / 2);

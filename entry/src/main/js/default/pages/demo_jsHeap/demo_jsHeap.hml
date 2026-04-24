@@ -30,7 +30,7 @@
       <text on:click="clickBtn" class="ui-btn">{{doTest ? "取消" : "下次启动时测试"}}</text>
     </list-item>
 
-    <list-item style="width: 0px; height: {{uiSizes.topMargin}}px; background-color: transparent;"></list-item>
+    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
 
   </list>
 </div>

@@ -18,11 +18,11 @@
       </stack>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 162px;">
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 174px;">
       <image style="width: 276px; height: 162px;" src="/common/license-card_1.png"></image>
     </list-item>
 
-    <list-item style="width: 0px; height: {{uiSizes.topMargin}}px; background-color: transparent;"></list-item>
+    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
 
   </list>
 </div>
