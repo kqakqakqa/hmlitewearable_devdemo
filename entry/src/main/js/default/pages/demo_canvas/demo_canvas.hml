@@ -1,0 +1,48 @@
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <list ref="bindRotation" on:swipe="swipeBack"
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+
+    <!-- timeBattery -->
+    <list-item class="timeBatteryWrapper"
+      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+    </list-item>
+
+    <!-- title -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
+      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+        <text class="text-38px title-text">Canvas测试</text>
+        <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+        </div>
+      </stack>
+    </list-item>
+
+    <!-- canvas区域 -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 200px; justify-content: center;">
+      <canvas ref="canvas" style="width: {{uiSizes.uiWidth}}px; height: 180px; background-color: #1a1a1a;"></canvas>
+    </list-item>
+
+    <!-- 控制按钮 -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 120px; justify-content: center;">
+      <div style="width: {{uiSizes.uiWidth}}px; height: 108px; flex-wrap: wrap;">
+        <text on:click="clickBtn('show')" class="btn">显示</text>
+        <text on:click="clickBtn('hide')" class="btn">隐藏</text>
+        <text on:click="clickBtn('rect')" class="btn">绘制矩形</text>
+        <text on:click="clickBtn('text')" class="btn">绘制文字</text>
+        <text on:click="clickBtn('move')" class="btn">移动</text>
+        <text on:click="clickBtn('clear')" class="btn">清空</text>
+      </div>
+    </list-item>
+
+    <!-- 状态显示 -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 60px; justify-content: center;">
+      <div style="width: {{uiSizes.uiWidth}}px; height: 48px; background-color: #222; border-radius: 12px; align-items: center; padding: 6px;">
+        <text class="text-30px">{{statusText}}</text>
+      </div>
+    </list-item>
+
+    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
+
+  </list>
+</div>

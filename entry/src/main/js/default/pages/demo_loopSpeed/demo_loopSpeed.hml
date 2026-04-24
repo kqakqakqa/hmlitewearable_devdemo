@@ -1,0 +1,55 @@
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <list ref="bindRotation" on:swipe="swipeBack"
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+
+    <!-- timeBattery -->
+    <list-item class="timeBatteryWrapper"
+      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+    </list-item>
+
+    <!-- title -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
+      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+        <text class="text-38px title-text">循环速度测试</text>
+        <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+        </div>
+      </stack>
+    </list-item>
+
+    <!-- 测试说明 -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 80px; justify-content: center;">
+      <div style="width: {{uiSizes.uiWidth}}px; height: 68px; background-color: #222; 
+                  border-radius: 12px; align-items: center; padding: 6px;">
+        <text class="text-30px">100轮循环测试 - 无需进度显示</text>
+      </div>
+    </list-item>
+
+    <!-- 测试按钮 -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 200px; justify-content: center;">
+      <div style="width: {{uiSizes.uiWidth}}px; height: 188px; flex-wrap: wrap;">
+        <text on:click="clickBtn('recursive')" class="btn">递归</text>
+        <text on:click="clickBtn('tailRecursive')" class="btn">尾递归</text>
+        <text on:click="clickBtn('forLet')" class="btn">for let</text>
+        <text on:click="clickBtn('forIn')" class="btn">for in</text>
+        <text on:click="clickBtn('forEach')" class="btn">forEach</text>
+        <text on:click="clickBtn('setTimeoutRecursive')" class="btn">setTimeout递归</text>
+        <text on:click="clickBtn('whileLoop')" class="btn">while</text>
+        <text on:click="clickBtn('runAll')" class="btn" style="color: gold;">运行全部</text>
+      </div>
+    </list-item>
+
+    <!-- 结果显示 -->
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 150px; justify-content: center;">
+      <div style="width: {{uiSizes.uiWidth}}px; height: 138px; background-color: #222; 
+                  border-radius: 12px; padding: 8px;">
+        <text class="text-30px" style="color: #4ecdc4;">{{statusText}}</text>
+        <text class="text-24px" style="color: #ffeaa7; margin-top: 8px;">{{resultText}}</text>
+      </div>
+    </list-item>
+
+    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
+
+  </list>
+</div>
