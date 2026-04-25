@@ -1,12 +1,43 @@
 console.info("pages/demo_loopSpeed/demo_loopSpeed onInit");
 
+const testLoopCount = 1000; // 测试循环次数
+
+const lcgConfig = {
+  a: 1664525,
+  c: 1013904223,
+  m: 4294967296,
+  initialSeed: 42,
+};
+
+// 统一的数组，供多个测试函数使用
+const testArr = [];
+testArr.length = testLoopCount;
+for (let i = 0; i < testLoopCount; i++) {
+  testArr[i] = 0;
+}
+
+function lcgNext(seed) {
+  return (lcgConfig.a * seed + lcgConfig.c) % lcgConfig.m;
+}
+
 export default {
   data: {
     uiSizes: $app.getImports().uiSizes,
     timeBatteryStr: "",
-    statusText: "准备就绪",
-    resultText: "",
-    isRunning: false,
+
+    tests: [
+      { name: "for let", msg: "", fn: testForLet },
+      { name: "while", msg: "", fn: testWhile },
+      { name: "for in", msg: "", fn: testForIn },
+      { name: "forEach", msg: "", fn: testForEach },
+      { name: "map", msg: "", fn: testMap },
+      { name: "递归", msg: "", fn: testRecursive },
+      { name: "尾递归", msg: "", fn: testTailRecursive },
+      { name: "timeout递归", msg: "", fn: testTimeoutRecursive },
+      { name: "1/10timeout递归", msg: "", fn: testTimeoutRecursive_1in10 },
+    ],
+
+    results: $app.getImports().memory["loopSpeedResults"],
   },
 
   onInit() {
@@ -23,219 +54,235 @@ export default {
     if (this.$refs.bindRotation.rotation) this.$refs.bindRotation.rotation({ focus: false });
   },
 
+  runTest(buttonName) {
+    console.info("testing " + buttonName);
+
+    let test = null;
+    for (let i = 0; i < this.tests.length; i++) {
+      if (this.tests[i].name === buttonName) {
+        test = this.tests[i];
+        break;
+      }
+    }
+    if (!test) return;
+
+    const testName = test.name;
+    const testFunction = test.fn;
+    test.msg = "测试中...";
+
+    try {
+
+      testFunction((result) => {
+        this.results[testName] = result;
+        test.msg = "";
+        // 保存测试结果到 memory
+        this.saveResults();
+      });
+
+    } catch (e) {
+      test.msg = "错误: " + e.message;
+    }
+
+  },
+
+  runAllTests() {
+    let index = 0;
+
+    const next = () => {
+      if (index >= this.tests.length) return;
+
+      const test = this.tests[index];
+      const testName = test.name;
+
+      try {
+        this.runTest(testName);
+      } catch (e) {
+        test.msg = "错误: " + e.message;
+      }
+
+      index++;
+      return setTimeout(next, 0);
+    };
+
+    next();
+  },
+
   clickBack() {
     $app.getImports().router.replace({ uri: "pages/demo_index/demo_index" });
   },
 
-  clickBtn(type) {
-    if (this.isRunning) return;
-    
-    this.isRunning = true;
-    this.statusText = "测试进行中...";
-    this.resultText = "";
-    
-    console.info("Loop Speed Test Type: " + type);
-
-    setTimeout(() => {
-      switch (type) {
-        case "recursive":
-          this.testRecursive();
-          break;
-        case "tailRecursive":
-          this.testTailRecursive();
-          break;
-        case "forLet":
-          this.testForLet();
-          break;
-        case "forIn":
-          this.testForIn();
-          break;
-        case "forEach":
-          this.testForEach();
-          break;
-        case "setTimeoutRecursive":
-          this.testSetTimeoutRecursive();
-          break;
-        case "whileLoop":
-          this.testWhileLoop();
-          break;
-        case "runAll":
-          this.runAllTests();
-          break;
-      }
-    }, 100);
+  swipeBack(d) {
+    if (d.direction === "right") return this.clickBack();
   },
 
-  testRecursive() {
-    const startTime = performance.now();
-    let count = 0;
-    
-    const recursive = (n) => {
-      if (n <= 0) return;
-      count++;
-      recursive(n - 1);
-    };
-    
-    recursive(100);
-    
-    const endTime = performance.now();
-    const duration = (endTime - startTime).toFixed(2);
-    this.statusText = "递归测试完成";
-    this.resultText = `耗时: ${duration}ms, 计数: ${count}`;
-    this.isRunning = false;
+  saveResults() {
+    $app.getImports().memory["loopSpeedResults"] = this.results;
+    $app.getImports().memory.save("loopSpeedResults");
   },
-
-  testTailRecursive() {
-    const startTime = performance.now();
-    let count = 0;
-    
-    const tailRecursive = (n, acc = 0) => {
-      if (n <= 0) return acc;
-      return tailRecursive(n - 1, acc + 1);
-    };
-    
-    count = tailRecursive(100);
-    
-    const endTime = performance.now();
-    const duration = (endTime - startTime).toFixed(2);
-    this.statusText = "尾递归测试完成";
-    this.resultText = `耗时: ${duration}ms, 计数: ${count}`;
-    this.isRunning = false;
-  },
-
-  testForLet() {
-    const startTime = performance.now();
-    let count = 0;
-    
-    for (let i = 0; i < 100; i++) {
-      count++;
-    }
-    
-    const endTime = performance.now();
-    const duration = (endTime - startTime).toFixed(2);
-    this.statusText = "for let测试完成";
-    this.resultText = `耗时: ${duration}ms, 计数: ${count}`;
-    this.isRunning = false;
-  },
-
-  testForIn() {
-    const startTime = performance.now();
-    let count = 0;
-    const arr = new Array(100).fill(0);
-    
-    for (let i in arr) {
-      count++;
-    }
-    
-    const endTime = performance.now();
-    const duration = (endTime - startTime).toFixed(2);
-    this.statusText = "for in测试完成";
-    this.resultText = `耗时: ${duration}ms, 计数: ${count}`;
-    this.isRunning = false;
-  },
-
-  testForEach() {
-    const startTime = performance.now();
-    let count = 0;
-    const arr = new Array(100).fill(0);
-    
-    arr.forEach(() => {
-      count++;
-    });
-    
-    const endTime = performance.now();
-    const duration = (endTime - startTime).toFixed(2);
-    this.statusText = "forEach测试完成";
-    this.resultText = `耗时: ${duration}ms, 计数: ${count}`;
-    this.isRunning = false;
-  },
-
-  testSetTimeoutRecursive() {
-    const startTime = performance.now();
-    let count = 0;
-    let completed = false;
-    
-    const setTimeoutRecursive = (n) => {
-      if (n <= 0) {
-        completed = true;
-        return;
-      }
-      count++;
-      setTimeout(() => setTimeoutRecursive(n - 1), 0);
-    };
-    
-    setTimeoutRecursive(100);
-    
-    // 等待所有setTimeout完成
-    const checkComplete = () => {
-      if (completed) {
-        const endTime = performance.now();
-        const duration = (endTime - startTime).toFixed(2);
-        this.statusText = "setTimeout递归测试完成";
-        this.resultText = `耗时: ${duration}ms, 计数: ${count}`;
-        this.isRunning = false;
-      } else {
-        setTimeout(checkComplete, 10);
-      }
-    };
-    
-    checkComplete();
-  },
-
-  testWhileLoop() {
-    const startTime = performance.now();
-    let count = 0;
-    let i = 0;
-    
-    while (i < 100) {
-      count++;
-      i++;
-    }
-    
-    const endTime = performance.now();
-    const duration = (endTime - startTime).toFixed(2);
-    this.statusText = "while循环测试完成";
-    this.resultText = `耗时: ${duration}ms, 计数: ${count}`;
-    this.isRunning = false;
-  },
-
-  runAllTests() {
-    const tests = [
-      { name: "递归", fn: () => this.testRecursive() },
-      { name: "尾递归", fn: () => this.testTailRecursive() },
-      { name: "for let", fn: () => this.testForLet() },
-      { name: "for in", fn: () => this.testForIn() },
-      { name: "forEach", fn: () => this.testForEach() },
-      { name: "while", fn: () => this.testWhileLoop() }
-    ];
-    
-    let results = [];
-    let index = 0;
-    
-    const runNext = () => {
-      if (index >= tests.length) {
-        this.statusText = "全部测试完成";
-        this.resultText = results.join(" | ");
-        this.isRunning = false;
-        return;
-      }
-      
-      const test = tests[index];
-      const startTime = performance.now();
-      
-      try {
-        test.fn();
-        const endTime = performance.now();
-        const duration = (endTime - startTime).toFixed(2);
-        results.push(`${test.name}: ${duration}ms`);
-      } catch (e) {
-        results.push(`${test.name}: 错误`);
-      }
-      
-      index++;
-      setTimeout(runNext, 50);
-    };
-    
-    runNext();
-  }
 };
+
+function testForLet(then) {
+  let seed = lcgConfig.initialSeed;
+
+  const startTime = Date.now();
+
+  for (let i = 0; i < testLoopCount; i++) {
+    seed = lcgNext(seed);
+  }
+
+  const endTime = Date.now();
+  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
+
+  then(`${duration}ms`);
+}
+
+function testWhile(then) {
+  let seed = lcgConfig.initialSeed;
+  let i = 0;
+  const startTime = Date.now();
+
+  while (i < testLoopCount) {
+    seed = lcgNext(seed);
+    i++;
+  }
+
+  const endTime = Date.now();
+  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
+  then(`${duration}ms`);
+}
+
+function testForIn(then) {
+  let seed = lcgConfig.initialSeed;
+
+  const startTime = Date.now();
+
+  for (let i in testArr) {
+    seed = lcgNext(seed);
+  }
+
+  const endTime = Date.now();
+  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
+
+  then(`${duration}ms`);
+}
+
+function testForEach(then) {
+  let seed = lcgConfig.initialSeed;
+
+  const startTime = Date.now();
+
+  testArr.forEach(() => {
+    seed = lcgNext(seed);
+  });
+
+  const endTime = Date.now();
+  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
+
+  then(`${duration}ms`);
+}
+
+function testMap(then) {
+  let seed = lcgConfig.initialSeed;
+
+  const startTime = Date.now();
+
+  testArr.map(() => {
+    seed = lcgNext(seed);
+  });
+
+  const endTime = Date.now();
+  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
+
+  then(`${duration}ms`);
+}
+
+function testRecursive(then) {
+  let seed = lcgConfig.initialSeed;
+  let count = 0;
+
+  const next = () => {
+    if (count >= testLoopCount) {
+      const endTime = Date.now();
+      const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
+
+      return then(`${duration}ms`);
+    }
+
+    seed = lcgNext(seed);
+    count++;
+    return next();
+  };
+
+  const startTime = Date.now();
+
+  next();
+}
+
+function testTailRecursive(then) {
+  let seed = lcgConfig.initialSeed;
+  let count = 0;
+
+  const next = () => {
+    seed = lcgNext(seed);
+    count++;
+    return (count >= testLoopCount) || next();
+  };
+
+  const startTime = Date.now();
+
+  next(testLoopCount);
+
+  const endTime = Date.now();
+  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
+
+  then(`${duration}ms`);
+}
+
+function testTimeoutRecursive(then) {
+  let seed = lcgConfig.initialSeed;
+  let count = 0;
+
+  const next = () => {
+    if (count >= testLoopCount) {
+      const endTime = Date.now();
+      const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
+
+      return then(`${duration}ms`);
+    }
+
+    seed = lcgNext(seed);
+    count++;
+    setTimeout(next, 0);
+  };
+
+  const startTime = Date.now();
+
+  next();
+}
+
+function testTimeoutRecursive_1in10(then) {
+  let seed = lcgConfig.initialSeed;
+  let count = 0;
+
+  const next = () => {
+    if (count >= testLoopCount) {
+      const endTime = Date.now();
+      const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
+
+      return then(`${duration}ms`);
+    }
+
+    seed = lcgNext(seed);
+    count++;
+
+    if (count % 10 === 0) {
+      return setTimeout(next, 0);
+    } else {
+      return next();
+    }
+  };
+
+  const startTime = Date.now();
+
+  next();
+}

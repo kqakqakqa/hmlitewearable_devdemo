@@ -6,6 +6,7 @@ const _this = {
 };
 
 const defaults = {
+  loopSpeedResults: {},
 };
 
 function init(onDone) {
