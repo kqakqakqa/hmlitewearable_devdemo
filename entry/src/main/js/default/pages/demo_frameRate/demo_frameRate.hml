@@ -11,50 +11,38 @@
     <!-- title -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
-        <text class="text-38px title-text">渲染帧率测试</text>
+        <text class="text-38px title-text">渲染帧率</text>
         <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
       </stack>
     </list-item>
 
-    <!-- 元素数量设置 -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 80px; justify-content: center;">
-      <div style="width: {{uiSizes.uiWidth}}px; height: 68px; align-items: center;">
-        <text class="text-30px" style="margin-right: 12px;">元素数量:</text>
-        <input type="number" value="{{elementCount}}" onchange="changeElementCount" 
-               style="width: 120px; height: 48px; background-color: #222; border-radius: 12px; 
-                      text-align: center; font-size: 30px; color: white;" />
-        <text on:click="clickBtn('start')" class="btn" style="margin-left: 12px;">开始测试</text>
+    <!-- 帧率显示 -->
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div on:click="runTest({{$item.name}})" class="text-btnCard"
+        style="width: {{uiSizes.uiWidth}}px; height: 124px; flex-direction: column; justify-content: center; align-items: flex-start;">
+        <text class="text-30px text-btnCard-title">数量：{{elements.length}}</text>
+        <text class="text-30px text-btnCard-title">帧率：30 → {{currentFps}}</text>
       </div>
     </list-item>
 
     <!-- 渲染区域 -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 200px; justify-content: center;">
-      <div ref="renderArea" style="width: {{uiSizes.uiWidth}}px; height: 180px; background-color: #1a1a1a; position: relative;">
-        <div for="{{elements}}" style="position: absolute; width: 20px; height: 20px; 
-               background-color: {{$item.color}}; border-radius: 50%; 
-               left: {{$item.x}}px; top: {{$item.y}}px;"></div>
-      </div>
-    </list-item>
-
-    <!-- 帧率显示 -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 80px; justify-content: center;">
-      <div style="width: {{uiSizes.uiWidth}}px; height: 68px; background-color: #222; 
-                  border-radius: 12px; align-items: center; padding: 6px;">
-        <text class="text-30px">当前帧率: {{currentFps}} FPS</text>
-      </div>
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 192px; justify-content: center;">
+      <stack style="width: 276px; height: 180px; background-color: #222; border-radius: 24px;">
+        <div for="{{elements}}"
+          style="width: 12px; height: 12px; left: {{$item.x - 6}}px; top: {{$item.y - 6}}px; border-radius: 12px; background-color: cornflowerblue;">
+        </div>
+      </stack>
     </list-item>
 
     <!-- 控制按钮 -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 120px; justify-content: center;">
-      <div style="width: {{uiSizes.uiWidth}}px; height: 108px; flex-wrap: wrap;">
-        <text on:click="clickBtn('start')" class="btn">开始</text>
-        <text on:click="clickBtn('stop')" class="btn">停止</text>
-        <text on:click="clickBtn('reset')" class="btn">重置</text>
-        <text on:click="clickBtn('add10')" class="btn">+10元素</text>
-        <text on:click="clickBtn('add100')" class="btn">+100元素</text>
-        <text on:click="clickBtn('add1000')" class="btn">+1000元素</text>
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 174px; justify-content: center;">
+      <div style="width: {{uiSizes.uiWidth}}px; height: 162px; flex-wrap: wrap;">
+        <text on:click="startAnimation" class="btn">开始</text>
+        <text on:click="stopAnimation" class="btn">停止</text>
+        <text on:click="addElements(1)" class="btn">+1元素</text>
+        <text on:click="clearElements" class="btn">清除元素</text>
       </div>
     </list-item>
 
