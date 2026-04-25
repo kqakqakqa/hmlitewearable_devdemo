@@ -16,10 +16,6 @@ for (let i = 0; i < testLoopCount; i++) {
   testArr[i] = 0;
 }
 
-function lcgNext(seed) {
-  return (lcgConfig.a * seed + lcgConfig.c) % lcgConfig.m;
-}
-
 export default {
   data: {
     uiSizes: $app.getImports().uiSizes,
@@ -120,6 +116,10 @@ export default {
     $app.getImports().memory.save("loopSpeedResults");
   },
 };
+
+function lcgNext(seed) {
+  return (lcgConfig.a * seed + lcgConfig.c) % lcgConfig.m;
+}
 
 function testForLet(then) {
   let seed = lcgConfig.initialSeed;
