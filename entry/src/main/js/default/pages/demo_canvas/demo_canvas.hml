@@ -11,7 +11,7 @@
     <!-- title -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
-        <text class="text-38px title-text">Canvas测试</text>
+        <text class="text-38px title-text">canvas</text>
         <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
@@ -19,26 +19,32 @@
     </list-item>
 
     <!-- canvas区域 -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 200px; justify-content: center;">
-      <canvas ref="canvas" style="width: {{uiSizes.uiWidth}}px; height: 180px; background-color: #1a1a1a;"></canvas>
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 192px; justify-content: center;">
+      <canvas ref="canvas" if="{{canvasVisible}}"
+        style="width: {{uiSizes.uiWidth}}px; height: 180px; background-color: #222; border-radius: 24px;"></canvas>
     </list-item>
 
     <!-- 控制按钮 -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 120px; justify-content: center;">
-      <div style="width: {{uiSizes.uiWidth}}px; height: 108px; flex-wrap: wrap;">
-        <text on:click="clickBtn('show')" class="btn">显示</text>
-        <text on:click="clickBtn('hide')" class="btn">隐藏</text>
-        <text on:click="clickBtn('rect')" class="btn">绘制矩形</text>
-        <text on:click="clickBtn('text')" class="btn">绘制文字</text>
-        <text on:click="clickBtn('move')" class="btn">移动</text>
-        <text on:click="clickBtn('clear')" class="btn">清空</text>
-      </div>
-    </list-item>
-
-    <!-- 状态显示 -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 60px; justify-content: center;">
-      <div style="width: {{uiSizes.uiWidth}}px; height: 48px; background-color: #222; border-radius: 12px; align-items: center; padding: 6px;">
-        <text class="text-30px">{{statusText}}</text>
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 468px; justify-content: center;">
+      <div style="width: 276px; height: 462px; flex-wrap: wrap; justify-content: space-between;">
+        <text on:click="showCanvas" class="btn">显示</text>
+        <text on:click="hideCanvas" class="btn">隐藏</text>
+        <text on:click="startMoving" class="btn">动画(!)</text>
+        <text on:click="clearCanvas" class="btn">清空</text>
+        <text on:click="testFillRect" class="btn">fillRect</text>
+        <text on:click="testStrokeRect" class="btn">strkRect</text>
+        <text on:click="testFillText" class="btn">fillText</text>
+        <text on:click="testLineWidth" class="btn">lneWidth</text>
+        <text on:click="testStrokeStyle" class="btn">strkStyle</text>
+        <text on:click="testStroke" class="btn">stroke</text>
+        <text on:click="testBeginPath" class="btn">begnPath</text>
+        <text on:click="testMoveTo" class="btn">moveTo</text>
+        <text on:click="testLineTo" class="btn">lineTo</text>
+        <text on:click="testClosePath" class="btn">clsePath</text>
+        <text on:click="testFont" class="btn">font</text>
+        <text on:click="testTextAlign" class="btn">textAlign</text>
+        <text on:click="testArc" class="btn">arc</text>
+        <text on:click="testRect" class="btn">rect</text>
       </div>
     </list-item>
 

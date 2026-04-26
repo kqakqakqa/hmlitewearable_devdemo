@@ -1,17 +1,18 @@
 console.info("pages/demo_canvas/demo_canvas onInit");
 
+const canvasWidth = $app.getImports().uiSizes.uiWidth;
+const canvasHeight = 180;
+const canvasBackground = "#222";
+
+let ctx;
+
 export default {
   data: {
     uiSizes: $app.getImports().uiSizes,
     timeBatteryStr: "",
-    statusText: "准备就绪",
+
     canvasVisible: true,
-    rectX: 50,
-    rectY: 50,
-    rectWidth: 100,
-    rectHeight: 60,
-    textX: 150,
-    textY: 100,
+
     moveDirection: 1,
     animationId: null,
   },
@@ -24,137 +25,244 @@ export default {
 
   onShow() {
     if (this.$refs.bindRotation.rotation) this.$refs.bindRotation.rotation({ focus: true });
-    this.drawInitialCanvas();
+
+    this.showCanvas();
   },
 
   onHide() {
     if (this.$refs.bindRotation.rotation) this.$refs.bindRotation.rotation({ focus: false });
+
     this.stopAnimation();
   },
 
-  clickBack() {
-    $app.getImports().router.replace({ uri: "pages/demo_index/demo_index" });
+  showCanvas() {
+    this.canvasVisible = true;
+
+    setTimeout(() => ctx = this.$refs.canvas.getContext("2d"), 50);
   },
 
-  clickBtn(type) {
-    console.info("Canvas Test Type: " + type);
-
-    switch (type) {
-      case "show":
-        this.canvasVisible = true;
-        this.statusText = "Canvas已显示";
-        this.drawInitialCanvas();
-        break;
-
-      case "hide":
-        this.canvasVisible = false;
-        this.statusText = "Canvas已隐藏";
-        break;
-
-      case "rect":
-        this.drawRectangle();
-        this.statusText = "绘制矩形";
-        break;
-
-      case "text":
-        this.drawText();
-        this.statusText = "绘制文字";
-        break;
-
-      case "move":
-        this.startMoving();
-        this.statusText = "开始移动";
-        break;
-
-      case "clear":
-        this.clearCanvas();
-        this.statusText = "画布已清空";
-        break;
-    }
-  },
-
-  drawInitialCanvas() {
-    if (!this.canvasVisible || !this.$refs.canvas) return;
-    
-    const ctx = this.$refs.canvas.getContext('2d');
-    ctx.fillStyle = '#1a1a1a';
-    ctx.fillRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
-    
-    // 绘制初始矩形
-    ctx.fillStyle = '#ff6b6b';
-    ctx.fillRect(this.rectX, this.rectY, this.rectWidth, this.rectHeight);
-    
-    // 绘制初始文字
-    ctx.fillStyle = '#4ecdc4';
-    ctx.font = '24px sans-serif';
-    ctx.fillText('Canvas测试', this.textX, this.textY);
-  },
-
-  drawRectangle() {
-    if (!this.canvasVisible || !this.$refs.canvas) return;
-    
-    const ctx = this.$refs.canvas.getContext('2d');
-    ctx.fillStyle = '#ff6b6b';
-    ctx.fillRect(this.rectX, this.rectY, this.rectWidth, this.rectHeight);
-  },
-
-  drawText() {
-    if (!this.canvasVisible || !this.$refs.canvas) return;
-    
-    const ctx = this.$refs.canvas.getContext('2d');
-    ctx.fillStyle = '#4ecdc4';
-    ctx.font = '24px sans-serif';
-    ctx.fillText('Canvas测试', this.textX, this.textY);
+  hideCanvas() {
+    this.canvasVisible = false;
   },
 
   startMoving() {
     this.stopAnimation();
-    
+
+    let rectX = canvasWidth * 0.2;
+    let rectY = canvasHeight * 0.3;
+    const rectWidth = 24;
+    const rectHeight = 24;
+    let textX = canvasWidth * 0.6;
+    const textY = canvasHeight * 0.55;
+    let moveDirection = 1;
+
     const move = () => {
       if (!this.canvasVisible || !this.$refs.canvas) return;
-      
-      const ctx = this.$refs.canvas.getContext('2d');
-      
+
       // 清空画布
-      ctx.fillStyle = '#1a1a1a';
-      ctx.fillRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
-      
+      ctx.fillStyle = canvasBackground;
+      ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+
       // 更新位置
-      this.rectX += this.moveDirection * 2;
-      this.textX += this.moveDirection * 2;
-      
+      rectX += moveDirection * 2;
+      textX += moveDirection * 2;
+
       // 边界检测
-      if (this.rectX <= 0 || this.rectX + this.rectWidth >= this.$refs.canvas.width) {
-        this.moveDirection *= -1;
+      if (rectX <= 0 || rectX + rectWidth >= canvasWidth) {
+        moveDirection *= -1;
       }
-      
+
       // 绘制矩形
-      ctx.fillStyle = '#ff6b6b';
-      ctx.fillRect(this.rectX, this.rectY, this.rectWidth, this.rectHeight);
-      
+      ctx.fillStyle = "#ff6b6b";
+      ctx.fillRect(rectX, rectY, rectWidth, rectHeight);
+
       // 绘制文字
-      ctx.fillStyle = '#4ecdc4';
-      ctx.font = '24px sans-serif';
-      ctx.fillText('Canvas测试', this.textX, this.textY);
-      
-      this.animationId = requestAnimationFrame(move);
+      ctx.fillStyle = "#4ecdc4";
+      ctx.font = "24px sans-serif";
+      ctx.fillText("canvas", textX, textY);
+
+      this.animationId = setTimeout(move, Math.round(1000 / 30));
     };
-    
+
     move();
   },
 
   stopAnimation() {
     if (this.animationId) {
-      cancelAnimationFrame(this.animationId);
+      clearTimeout(this.animationId);
       this.animationId = null;
     }
   },
 
   clearCanvas() {
     if (!this.canvasVisible || !this.$refs.canvas) return;
-    
-    const ctx = this.$refs.canvas.getContext('2d');
-    ctx.fillStyle = '#1a1a1a';
-    ctx.fillRect(0, 0, this.$refs.canvas.width, this.$refs.canvas.height);
+
+    ctx.fillStyle = canvasBackground;
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+  },
+
+  // 测试fillRect方法
+  testFillRect() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.fillStyle = "#33ff6b6b";
+    ctx.fillRect(50, 50, 100, 80);
+  },
+
+  // 测试strokeRect方法
+  testStrokeRect() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.strokeStyle = "#4ecdc4";
+    ctx.lineWidth = 5;
+    ctx.strokeRect(50, 50, 100, 80);
+  },
+
+  // 测试fillText方法
+  testFillText() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.fillStyle = "#4ecdc4";
+    ctx.font = "30px sans-serif";
+    ctx.fillText("canvas测试", 50, 100);
+  },
+
+  // 测试lineWidth属性
+  testLineWidth() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.strokeStyle = "#ff6b6b";
+    ctx.lineWidth = 10;
+    ctx.strokeRect(50, 50, 100, 80);
+  },
+
+  // 测试strokeStyle属性
+  testStrokeStyle() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.lineWidth = 5;
+    ctx.strokeStyle = "#77ddff";
+    ctx.strokeRect(50, 50, 100, 80);
+  },
+
+  // 测试stroke方法
+  testStroke() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    ctx.lineTo(150, 50);
+    ctx.lineTo(100, 130);
+    ctx.closePath();
+    ctx.strokeStyle = "#ff6b6b";
+    ctx.stroke();
+  },
+
+  // 测试beginPath方法
+  testBeginPath() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.beginPath();
+    ctx.lineWidth = 6;
+    ctx.strokeStyle = "#0000ff";
+    ctx.moveTo(50, 80);
+    ctx.lineTo(250, 80);
+    ctx.stroke();
+  },
+
+  // 测试moveTo方法
+  testMoveTo() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    ctx.lineTo(250, 130);
+    ctx.strokeStyle = "#4ecdc4";
+    ctx.stroke();
+  },
+
+  // 测试lineTo方法
+  testLineTo() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    ctx.lineTo(250, 130);
+    ctx.strokeStyle = "#ff6b6b";
+    ctx.stroke();
+  },
+
+  // 测试closePath方法
+  testClosePath() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.beginPath();
+    ctx.moveTo(50, 50);
+    ctx.lineTo(150, 50);
+    ctx.lineTo(100, 130);
+    ctx.closePath();
+    ctx.strokeStyle = "#4ecdc4";
+    ctx.stroke();
+  },
+
+  // 测试font属性
+  testFont() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.font = "30px sans-serif";
+    ctx.fillStyle = "#ff6b6b";
+    ctx.fillText("字体测试", 50, 100);
+  },
+
+  // 测试textAlign属性
+  testTextAlign() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.strokeStyle = "#dd66ff";
+    ctx.beginPath();
+    ctx.moveTo(140, 10);
+    ctx.lineTo(140, 160);
+    ctx.stroke();
+
+    ctx.font = "18px sans-serif";
+    ctx.fillStyle = "#ff6b6b";
+
+    ctx.textAlign = "left";
+    ctx.fillText("textAlign=left", 140, 100);
+
+    ctx.textAlign = "center";
+    ctx.fillText("textAlign=center", 140, 120);
+
+    ctx.textAlign = "right";
+    ctx.fillText("textAlign=right", 140, 140);
+  },
+
+  // 测试arc方法
+  testArc() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.beginPath();
+    ctx.arc(100, 75, 50, 0, 6.28);
+    ctx.strokeStyle = "#ff6b6b";
+    ctx.stroke();
+  },
+
+  // 测试rect方法
+  testRect() {
+    if (!this.canvasVisible || !this.$refs.canvas) return;
+
+    ctx.rect(50, 50, 100, 80);
+    ctx.strokeStyle = "#4ecdc4";
+    ctx.stroke();
+  },
+
+  clickBack() {
+    $app.getImports().router.replace({ uri: "pages/demo_index/demo_index" });
+  },
+
+  swipeBack(d) {
+    if (d.direction === "right") {
+      $app.getImports().router.replace({ uri: "pages/demo_index/demo_index" });
+    }
   }
 };
