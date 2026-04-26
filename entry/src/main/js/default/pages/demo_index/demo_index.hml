@@ -69,7 +69,7 @@
 
     <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
       <div on:click="clickCard('demo_frameRate')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">元素移动帧率</text>
+        <text class="text-30px text-btnCard-title">渲染帧率</text>
         <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>

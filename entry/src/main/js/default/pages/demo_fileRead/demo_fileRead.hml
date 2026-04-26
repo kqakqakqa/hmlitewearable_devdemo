@@ -43,10 +43,10 @@
     </list-item>
 
     <!-- btn -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 88px; justify-content: center;">
-      <div style="width: {{uiSizes.uiWidth}}px; height: 38px; flex-wrap: wrap;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 86px; justify-content: center;">
+      <div style="width: 276px; height: 80px; flex-wrap: wrap; justify-content: space-between;">
+        <text class="text-30px" style="width: 276px; text-align: center;">{{readPos}}</text>
         <text on:click="changeReadPos(-1)" class="btn">-1</text>
-        <text class="text-30px" style="margin-right: 6px;">{{readPos}}</text>
         <text on:click="changeReadPos(1)" class="btn">+1</text>
       </div>
     </list-item>

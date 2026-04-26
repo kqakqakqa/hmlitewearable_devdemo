@@ -29,7 +29,8 @@
 
     <!-- 渲染区域 -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 192px; justify-content: center;">
-      <stack style="width: 276px; height: 180px; background-color: #222; border-radius: 24px;">
+      <stack if="{{stackVisible}}"
+        style="width: {{uiSizes.uiWidth}}px; height: 180px; background-color: #222; border-radius: 24px;">
         <div for="{{elements}}"
           style="width: 12px; height: 12px; left: {{$item.x - 6}}px; top: {{$item.y - 6}}px; border-radius: 12px; background-color: cornflowerblue;">
         </div>
@@ -37,12 +38,14 @@
     </list-item>
 
     <!-- 控制按钮 -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 174px; justify-content: center;">
-      <div style="width: {{uiSizes.uiWidth}}px; height: 162px; flex-wrap: wrap;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 132px; justify-content: center;">
+      <div style="width: 276px; height: 126px; flex-wrap: wrap; justify-content: space-between;">
         <text on:click="startAnimation" class="btn">开始</text>
         <text on:click="stopAnimation" class="btn">停止</text>
         <text on:click="addElements(1)" class="btn">+1元素</text>
         <text on:click="clearElements" class="btn">清除元素</text>
+        <text on:click="hideElements" class="btn">隐藏</text>
+        <text on:click="showElements" class="btn">显示</text>
       </div>
     </list-item>
 

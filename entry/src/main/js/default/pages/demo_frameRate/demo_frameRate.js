@@ -2,13 +2,15 @@ console.info("pages/demo_frameRate/demo_frameRate onInit");
 
 const estFrameTime = Math.round(1000 / 30);
 
-const stackWidth = 276;
+const stackWidth = $app.getImports().uiSizes.uiWidth;
 const stackHeight = 180;
 
 export default {
   data: {
     uiSizes: $app.getImports().uiSizes,
     timeBatteryStr: "",
+
+    stackVisible: true,
 
     elements: [],
 
@@ -89,7 +91,7 @@ export default {
       const timestamp = Date.now();
 
       // 更新元素位置，让它们绕中心点旋转
-      const rotationSpeed = 0.02; // 旋转速度
+      const rotationSpeed = 0.1; // 旋转速度
 
       for (let i = 0; i < this.elements.length; i++) {
         let element = this.elements[i];
@@ -138,5 +140,13 @@ export default {
     if (d.direction === "right") {
       $app.getImports().router.replace({ uri: "pages/demo_index/demo_index" });
     }
+  },
+
+  hideElements() {
+    this.stackVisible = false;
+  },
+
+  showElements() {
+    this.stackVisible = true;
   }
 };
