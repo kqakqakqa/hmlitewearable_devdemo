@@ -36,10 +36,6 @@ export default {
     this.stopAnimation();
   },
 
-  clickBack() {
-    $app.getImports().router.replace({ uri: "pages/demo_index/demo_index" });
-  },
-
   addElements(count) {
     // 使用画布常量计算中心点位置
     const centerX = stackWidth / 2;
@@ -136,17 +132,20 @@ export default {
     this.currentFps = "--";
   },
 
-  swipeBack(d) {
-    if (d.direction === "right") {
-      $app.getImports().router.replace({ uri: "pages/demo_index/demo_index" });
-    }
-  },
-
   hideElements() {
     this.stackVisible = false;
   },
 
   showElements() {
     this.stackVisible = true;
-  }
+  },
+
+  clickBack() {
+    $app.getImports().router.back();
+  },
+
+  swipeBack(d) {
+    if (d.direction === "right") return this.clickBack();
+  },
+
 };

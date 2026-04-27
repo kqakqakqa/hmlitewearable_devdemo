@@ -6,6 +6,8 @@ const _this = {
 };
 
 const defaults = {
+  privacyPolicyAccepted: false,
+
   loopSpeedResults: {},
 };
 

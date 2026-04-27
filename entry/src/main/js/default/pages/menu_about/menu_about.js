@@ -23,9 +23,7 @@ export default {
   },
 
   clickBack() {
-    $app.getImports().router.replace({
-      uri: "pages/menu/menu",
-    });
+    $app.getImports().router.back();
   },
 
   swipeBack(d) {

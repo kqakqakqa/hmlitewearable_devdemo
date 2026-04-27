@@ -4,7 +4,7 @@
     "vendor": "kqakqakqa",
     "version": {
       "code": 0,
-      "name": "0.1.22"
+      "name": "0.1.23"
     }
   },
   "deviceConfig": {},
@@ -31,6 +31,7 @@
           "pages/testJsHeap/testJsHeap",
           "pages/index/index",
           "pages/router/router",
+          "pages/privacyPolicy/privacyPolicy",
           "pages/menu/menu",
           "pages/menu_about/menu_about",
           "pages/menu_licenses/menu_licenses",

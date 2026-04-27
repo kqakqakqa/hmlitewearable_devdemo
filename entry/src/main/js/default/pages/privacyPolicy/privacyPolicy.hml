@@ -11,15 +11,28 @@
     <!-- title -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
-        <text class="text-38px title-text">开源代码许可</text>
+        <text class="text-38px title-text">隐私政策</text>
         <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
       </stack>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 174px;">
-      <image style="width: 276px; height: 162px;" src="/common/licenseCard_hmlitewearable_devdemo.png"></image>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 91px;">
+      <text class="text-30px" style="width: {{uiSizes.uiWidth}}px; height: 79px; text-align: center;">
+        使用本应用前，请您阅读并同意隐私政策：
+      </text>
+    </list-item>
+
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 288px;">
+      <image style="width: 276px; height: 276px;" src="/common/qrcode_privacyPolicy.png"></image>
+    </list-item>
+
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 74px;">
+      <text on:click="clickAccept" class="ui-btn">同意</text>
+    </list-item>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 74px;">
+      <text on:click="clickReject" class="ui-btn">拒绝并退出</text>
     </list-item>
 
     <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>

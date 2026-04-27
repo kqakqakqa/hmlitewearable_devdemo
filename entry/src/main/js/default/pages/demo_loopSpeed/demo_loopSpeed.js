@@ -103,18 +103,19 @@ export default {
     next();
   },
 
+  saveResults() {
+    $app.getImports().memory["loopSpeedResults"] = this.results;
+    $app.getImports().memory.save("loopSpeedResults");
+  },
+
   clickBack() {
-    $app.getImports().router.replace({ uri: "pages/demo_index/demo_index" });
+    $app.getImports().router.back();
   },
 
   swipeBack(d) {
     if (d.direction === "right") return this.clickBack();
   },
 
-  saveResults() {
-    $app.getImports().memory["loopSpeedResults"] = this.results;
-    $app.getImports().memory.save("loopSpeedResults");
-  },
 };
 
 function lcgNext(seed) {

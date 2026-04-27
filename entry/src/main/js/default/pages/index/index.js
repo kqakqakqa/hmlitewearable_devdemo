@@ -37,7 +37,16 @@ export default {
   onInit() {
     $app.setImports(imports);
 
-    initImports(() => router.replace({ uri: "pages/demo_index/demo_index" }));
+    initImports(() => {
+
+      if (true || $app.getImports().memory["privacyPolicyAccepted"]) {
+        return router.replace({ uri: "pages/demo_index/demo_index", });
+      } else {
+        return router.replace({ uri: "pages/privacyPolicy/privacyPolicy" });
+      }
+
+    });
+
   },
 }
 

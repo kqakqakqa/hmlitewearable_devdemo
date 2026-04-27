@@ -23,7 +23,7 @@
     </list-item>
 
     <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 288px;">
-      <image style="width: 276px; height: 276px;" src="/common/ifdian.png"></image>
+      <image style="width: 276px; height: 276px;" src="/common/qrcode_afdian.png"></image>
     </list-item>
 
     <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>

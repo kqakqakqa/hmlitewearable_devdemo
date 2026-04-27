@@ -72,7 +72,26 @@ const _this = {
         },
       }), 0);
     } else {
-      console.warn("No previous page to go back to");
+      console.info("no prev page, exit app");
+      return requireNative("system.app").terminate();
+    }
+  },
+
+  /**
+   * Clear all pages except the latest one
+   *
+   */
+  clear() {
+    console.info("router.clear");
+
+    // 保留最新页面，清除其他所有页面
+    if (historyStack.length > 1) {
+      const latestPage = historyStack[historyStack.length - 1];
+      historyStack.length = 0; // 清空栈
+      historyStack.push(latestPage); // 只保留最新页面
+      console.info("cleared all pages except latest: " + latestPage.uri);
+    } else {
+      console.info("no pages to clear");
     }
   },
 

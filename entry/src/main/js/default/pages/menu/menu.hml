@@ -26,6 +26,13 @@
     </list-item>
 
     <!-- <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="pageTo('privacyPolicy')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">隐私政策</text>
+        <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
+      </div>
+    </list-item> -->
+
+    <!-- <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
       <div on:click="pageTo('menu_licenses')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
         <text class="text-30px text-btnCard-title">开源代码许可</text>
         <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
@@ -42,8 +49,7 @@
     <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
       <div on:click="exitApp" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
         <text class="text-30px text-btnCard-title">退出应用</text>
-        <image class="text-btnCard-go-icon" src="/common/leave_home_fill-30px.png">
-        </image>
+        <image class="text-btnCard-go-icon" src="/common/leave_home_fill-30px.png"></image>
       </div>
     </list-item>
 

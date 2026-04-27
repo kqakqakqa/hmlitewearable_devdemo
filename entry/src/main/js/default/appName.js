@@ -1,7 +1,9 @@
 console.info("appName.js onImport");
 
 const _this = {
+
   appName: undefined,
+
   init: onDone => {
     if (_this.appName) return onDone();
 
@@ -12,6 +14,7 @@ const _this = {
       });
     });
   },
+
   getAppName: (bundleName, onDone) => {
     const bundleRunDirUri = "internal://app\\..\\../run/" + bundleName + "/assets";
     $app.getImports().file.list({
@@ -69,6 +72,7 @@ const _this = {
       }
     });
   }
+
 };
 
 export default _this;

@@ -20,6 +20,23 @@ export default {
     if (this.$refs.bindRotation.rotation) this.$refs.bindRotation.rotation({ focus: false });
   },
 
+  clickAccept() {
+    $app.getImports().memory["privacyPolicyAccepted"] = true;
+    $app.getImports().memory.save("privacyPolicyAccepted");
+
+    $app.getImports().router.clear();
+    $app.getImports().router.replace({
+      uri: "pages/demo_index/demo_index",
+    });
+  },
+
+  clickReject() {
+    $app.getImports().memory["privacyPolicyAccepted"] = false;
+    $app.getImports().memory.save("privacyPolicyAccepted");
+
+    $app.getImports().app.terminate();
+  },
+
   clickBack() {
     $app.getImports().router.back();
   },
