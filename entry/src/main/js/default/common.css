@@ -60,6 +60,7 @@
 .timeBatteryWrapper {
   align-items: flex-end;
   justify-content: center;
+  background-color: transparent;
 }
 
 .timeBatteryStr {

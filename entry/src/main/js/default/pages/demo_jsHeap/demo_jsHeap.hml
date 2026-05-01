@@ -9,8 +9,9 @@
     </list-item>
 
     <!-- title -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
-      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+    <list-item
+      style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
+      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
         <text class="text-38px title-text">js heap</text>
         <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
