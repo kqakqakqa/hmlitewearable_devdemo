@@ -118,3 +118,18 @@
   justify-content: center;
   background-color: #11ffffff;
 }
+
+.infoCard-wrapper {
+  height: 142px;
+}
+
+.infoCard {
+  height: 130px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.infoCard-content {
+  margin-top: 6px;
+}

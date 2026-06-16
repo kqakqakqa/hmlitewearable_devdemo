@@ -19,8 +19,20 @@
       </stack>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 132px;">
-      <text class="text-30px" style="height: 120px; text-align: center;">感谢你的支持！\n\(^▽^*)))\n这是我的爱发电：</text>
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 91px;">
+      <text class="text-30px" style="height: 79px; text-align: center;">感谢你的支持！\n\(^▽^*)))</text>
+    </list-item>
+
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 44px;">
+      <text class="text-30px" style="height: 38px; text-align: center;">我的bilibili空间：</text>
+    </list-item>
+
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 288px;">
+      <image style="width: 276px; height: 276px;" src="/common/qrcode_bilibili.png"></image>
+    </list-item>
+
+    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 44px;">
+      <text class="text-30px" style="height: 38px; text-align: center;">我的爱发电：</text>
     </list-item>
 
     <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 288px;">

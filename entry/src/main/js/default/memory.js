@@ -25,7 +25,7 @@ function init(onDone) {
   $app.getImports().file.mkdir({
     uri: "internal://app/kvstore",
     fail: (data, code) => {
-      console.error(`file.mkdir kvstore failed: ${code} ${data}`);
+      console.error(`file.mkdir kvstore fail: ${code} ${data}`);
     },
     complete: next,
   })
@@ -53,7 +53,7 @@ function save(key, then) {
     uri: `internal://app/kvstore/${key}`,
     text: JSON.stringify(_this[key]),
     fail: (data, code) => {
-      console.error(`file.writeText ${key} failed: ${code} ${data}`);
+      console.error(`file.writeText ${key} fail: ${code} ${data}`);
     },
     success: () => {
       console.info(`file.writeText ${key} success`);
