@@ -3,8 +3,8 @@
     "bundleName": "com.github.kqakqakqa.hmlitewearable.devdemo",
     "vendor": "kqakqakqa",
     "version": {
-      "code": 25,
-      "name": "0.25.0"
+      "code": 26,
+      "name": "0.26.0"
     }
   },
   "deviceConfig": {},
@@ -37,15 +37,15 @@
           "pages/menu_licenses/menu_licenses",
           "pages/menu_sponsor/menu_sponsor",
           "pages/demo_index/demo_index",
-          "pages/demo_hmlFor/demo_hmlFor",
+          "pages/demo_arrRender/demo_arrRender",
           "pages/demo_jsHeap/demo_jsHeap",
           "pages/demo_onEvent/demo_onEvent",
           "pages/demo_fontSize/demo_fontSize",
           "pages/demo_fileRead/demo_fileRead",
           "pages/demo_fetchSize/demo_fetchSize",
           "pages/demo_canvas/demo_canvas",
-          "pages/demo_frameRate/demo_frameRate",
-          "pages/demo_loopSpeed/demo_loopSpeed",
+          "pages/demo_domRender/demo_domRender",
+          "pages/demo_loopPerformance/demo_loopPerformance",
           "pages/demo_deviceInfo/demo_deviceInfo"
         ],
         "name": "default"

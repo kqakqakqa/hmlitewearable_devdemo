@@ -1,4 +1,4 @@
-console.info("pages/demo_loopSpeed/demo_loopSpeed onInit");
+console.info("pages/demo_loopPerformance/demo_loopPerformance onInit");
 
 const testLoopCount = 1000; // 测试循环次数
 
@@ -33,7 +33,7 @@ export default {
       { name: "1/10timeout递归", msg: "", fn: testTimeoutRecursive_1in10 },
     ],
 
-    results: $app.getImports().memory["loopSpeedResults"],
+    results: $app.getImports().memory["loopPerformanceResults"],
   },
 
   onInit() {
@@ -104,8 +104,8 @@ export default {
   },
 
   saveResults() {
-    $app.getImports().memory["loopSpeedResults"] = this.results;
-    $app.getImports().memory.save("loopSpeedResults");
+    $app.getImports().memory["loopPerformanceResults"] = this.results;
+    $app.getImports().memory.save("loopPerformanceResults");
   },
 
   clickBack() {

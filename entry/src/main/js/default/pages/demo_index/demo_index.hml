@@ -20,7 +20,7 @@
     </list-item>
 
     <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="clickCard('demo_hmlFor')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+      <div on:click="clickCard('demo_arrRender')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
         <text class="text-30px text-btnCard-title">列表渲染</text>
         <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
@@ -69,14 +69,14 @@
     </list-item>
 
     <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="clickCard('demo_frameRate')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+      <div on:click="clickCard('demo_domRender')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
         <text class="text-30px text-btnCard-title">渲染帧率</text>
         <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>
     </list-item>
 
     <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="clickCard('demo_loopSpeed')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
+      <div on:click="clickCard('demo_loopPerformance')" class="text-btnCard" style="width: {{uiSizes.uiWidth}}px;">
         <text class="text-30px text-btnCard-title">循环速度</text>
         <image class="text-btnCard-go-icon" src="/common/chevron_right-30px-gray.png"></image>
       </div>

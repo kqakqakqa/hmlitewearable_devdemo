@@ -1,4 +1,4 @@
-console.info("pages/demo_hmlFor/demo_hmlFor onInit");
+console.info("pages/demo_jsHeap/demo_jsHeap onInit");
 
 export default {
   data: {

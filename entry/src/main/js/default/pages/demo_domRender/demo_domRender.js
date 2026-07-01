@@ -1,4 +1,4 @@
-console.info("pages/demo_frameRate/demo_frameRate onInit");
+console.info("pages/demo_domRender/demo_domRender onInit");
 
 const estFrameTime = Math.round(1000 / 30);
 
