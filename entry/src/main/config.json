@@ -3,8 +3,8 @@
     "bundleName": "com.github.kqakqakqa.hmlitewearable.devdemo",
     "vendor": "kqakqakqa",
     "version": {
-      "code": 26,
-      "name": "0.26.0"
+      "code": 27,
+      "name": "0.27.0"
     }
   },
   "deviceConfig": {},
@@ -46,9 +46,40 @@
           "pages/demo_canvas/demo_canvas",
           "pages/demo_domRender/demo_domRender",
           "pages/demo_loopPerformance/demo_loopPerformance",
-          "pages/demo_deviceInfo/demo_deviceInfo"
+          "pages/demo_deviceInfo/demo_deviceInfo",
+          "pages/demo_sensorSubscribe/demo_sensorSubscribe"
         ],
         "name": "default"
+      }
+    ],
+    "reqPermissions": [
+      {
+        "reason": "传感器订阅功能",
+        "usedScene": {
+          "when": "always"
+        },
+        "name": "ohos.permission.ACCELEROMETER"
+      },
+      {
+        "reason": "传感器订阅功能",
+        "usedScene": {
+          "when": "always"
+        },
+        "name": "ohos.permission.GYROSCOPE"
+      },
+      {
+        "reason": "传感器订阅功能",
+        "usedScene": {
+          "when": "always"
+        },
+        "name": "ohos.permission.ACTIVITY_MOTION"
+      },
+      {
+        "reason": "传感器订阅功能",
+        "usedScene": {
+          "when": "always"
+        },
+        "name": "ohos.permission.READ_HEALTH_DATA"
       }
     ]
   }

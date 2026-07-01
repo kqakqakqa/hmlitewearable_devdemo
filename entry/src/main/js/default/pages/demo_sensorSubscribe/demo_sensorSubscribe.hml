@@ -1,0 +1,90 @@
+<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <list ref="bindRotation" on:swipe="swipeBack"
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+
+    <!-- timeBattery -->
+    <list-item class="timeBatteryWrapper"
+      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+    </list-item>
+
+    <!-- title -->
+    <list-item
+      style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
+      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
+        <text class="text-38px title-text">传感器订阅</text>
+        <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+        </div>
+      </stack>
+    </list-item>
+
+    <!-- 线性加速度 -->
+    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">线性加速度</text>
+        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{accelerometer}}</text>
+      </div>
+    </list-item>
+
+    <!-- 旋转角速度 -->
+    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">旋转角速度</text>
+        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{gyroscope}}</text>
+      </div>
+    </list-item>
+
+    <!-- 磁场 -->
+    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">磁场</text>
+        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{compass}}</text>
+      </div>
+    </list-item>
+
+    <!-- 计步 -->
+    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">计步</text>
+        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{stepCounter}}</text>
+      </div>
+    </list-item>
+
+    <!-- 气压 -->
+    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">气压</text>
+        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{barometer}}</text>
+      </div>
+    </list-item>
+
+    <!-- 心率 -->
+    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">心率</text>
+        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{heartRate}}</text>
+      </div>
+    </list-item>
+
+    <!-- 佩戴状态 -->
+    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
+        <text class="text-30px text-btnCard-title">佩戴状态</text>
+        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{onBodyState}}</text>
+      </div>
+    </list-item>
+
+    <!-- 更多 -->
+    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: {{38 + 6 + moreSensors.length * 41.25 - 3.75 + 48 + 12}}px;">
+      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px; height: {{38 + 6 + moreSensors.length * 41.25 - 3.75 + 48}}px;">
+        <text class="text-30px text-btnCard-title">更多</text>
+        <text class="text-30px text-btnCard-title infoCard-content"
+          style="color: gray;">{{moreSensors.join("\n")}}</text>
+      </div>
+    </list-item>
+
+    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
+
+  </list>
+</div>
