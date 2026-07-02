@@ -44,11 +44,13 @@
     </list-item>
 
     <!-- btn -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 86px; justify-content: center;">
-      <div style="width: 276px; height: 80px; flex-wrap: wrap; justify-content: space-between;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 128px; justify-content: center;">
+      <div style="width: 276px; height: 116px; flex-wrap: wrap; justify-content: space-between;">
         <text class="text-30px" style="width: 276px; text-align: center;">{{readPos}}</text>
         <text on:click="changeReadPos(-1)" class="btn">-1</text>
         <text on:click="changeReadPos(1)" class="btn">+1</text>
+        <text on:click="changeReadPos(-10)" class="btn">-10</text>
+        <text on:click="changeReadPos(10)" class="btn">+10</text>
       </div>
     </list-item>
 
