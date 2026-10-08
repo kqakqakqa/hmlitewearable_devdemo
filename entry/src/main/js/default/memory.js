@@ -9,6 +9,7 @@ const defaults = {
   privacyPolicyAccepted: false,
 
   loopPerformanceResults: {},
+  mathPerformanceResults: {},
 };
 
 function init(onDone) {

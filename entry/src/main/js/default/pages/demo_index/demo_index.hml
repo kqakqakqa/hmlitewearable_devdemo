@@ -94,7 +94,16 @@
     <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
       <div on:click="clickCard('demo_loopPerformance')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
-          <text class="text-30px interactiveCard-rowText">循环速度</text>
+          <text class="text-30px interactiveCard-rowText">循环性能</text>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+        </div>
+      </div>
+    </list-item>
+
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickCard('demo_calcPerformance')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
+        <div class="interactiveCard-row">
+          <text class="text-30px interactiveCard-rowText">运算性能</text>
           <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
         </div>
       </div>

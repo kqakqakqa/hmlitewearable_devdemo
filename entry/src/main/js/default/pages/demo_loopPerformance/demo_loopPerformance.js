@@ -1,6 +1,7 @@
 console.info("pages/demo_loopPerformance/demo_loopPerformance onInit");
 
-const testLoopCount = 1000; // 测试循环次数
+const testLoopCount = 1000;
+const testDuration = 5000;
 
 const lcgConfig = {
   a: 1664525,
@@ -22,15 +23,15 @@ export default {
     timeBatteryStr: "",
 
     tests: [
-      { name: "for let", msg: "", fn: testForLet },
-      { name: "while", msg: "", fn: testWhile },
-      { name: "for in", msg: "", fn: testForIn },
-      { name: "forEach", msg: "", fn: testForEach },
-      { name: "map", msg: "", fn: testMap },
-      { name: "递归", msg: "", fn: testRecursive },
-      { name: "尾递归", msg: "", fn: testTailRecursive },
-      { name: "timeout递归", msg: "", fn: testTimeoutRecursive },
-      { name: "1/10timeout递归", msg: "", fn: testTimeoutRecursive_1in10 },
+      { name: "for let", fn: testForLet },
+      { name: "while", fn: testWhile },
+      { name: "for in", fn: testForIn },
+      { name: "forEach", fn: testForEach },
+      { name: "map", fn: testMap },
+      { name: "递归", fn: testRecursive },
+      { name: "尾递归", fn: testTailRecursive },
+      { name: "timeout递归", fn: testTimeoutRecursive },
+      { name: "1/10timeout递归", fn: testTimeoutRecursive_1in10 },
     ],
 
     results: $app.getImports().memory["loopPerformanceResults"],
@@ -50,56 +51,39 @@ export default {
     if (this.$refs.bindRotation.rotation) this.$refs.bindRotation.rotation({ focus: false });
   },
 
-  runTest(buttonName) {
-    console.info("testing " + buttonName);
-
+  runTest(testName, then) {
     let test = null;
     for (let i = 0; i < this.tests.length; i++) {
-      if (this.tests[i].name === buttonName) {
+      if (this.tests[i].name === testName) {
         test = this.tests[i];
         break;
       }
     }
-    if (!test) return;
+    if (!test || test.running) return then && then();
 
-    const testName = test.name;
-    const testFunction = test.fn;
-    test.msg = "测试中...";
+    test.running = true;
+    test.progress = 0;
 
-    try {
-
-      testFunction((result) => {
-        this.results[testName] = result;
-        test.msg = "";
-        // 保存测试结果到 memory
-        this.saveResults();
-      });
-
-    } catch (e) {
-      test.msg = "错误: " + e.message;
-    }
-
+    runTimedTest(test.fn, progress => {
+      test.progress = progress;
+    }, result => {
+      this.results[testName] = result;
+      test.running = false;
+      test.progress = 100;
+      this.saveResults();
+      return then && then();
+    });
   },
 
   runAllTests() {
     let index = 0;
-
     const next = () => {
       if (index >= this.tests.length) return;
-
-      const test = this.tests[index];
-      const testName = test.name;
-
-      try {
-        this.runTest(testName);
-      } catch (e) {
-        test.msg = "错误: " + e.message;
-      }
-
-      index++;
-      return setTimeout(next, 0);
+      this.runTest(this.tests[index].name, () => {
+        index++;
+        setTimeout(next, 0);
+      });
     };
-
     next();
   },
 
@@ -122,168 +106,125 @@ function lcgNext(seed) {
   return (lcgConfig.a * seed + lcgConfig.c) % lcgConfig.m;
 }
 
-function testForLet(then) {
-  let seed = lcgConfig.initialSeed;
-
+function runTimedTest(runInterval, onProgress, onDone) {
+  let operationCount = 0;
+  let operationTime = 0;
   const startTime = Date.now();
 
+  const next = () => {
+    const operationStart = Date.now();
+    runInterval(completedCount => {
+      operationTime += Date.now() - operationStart;
+      operationCount += completedCount;
+
+      const elapsedTime = Date.now() - startTime;
+      const progress = Math.min(100, Math.floor(elapsedTime * 100 / testDuration));
+      onProgress(progress);
+
+      if (elapsedTime >= testDuration) {
+        return onDone(formatOps(operationCount, operationTime));
+      }
+      // 外层 timeout 只用于分批调度，不计入测试项的实际执行时间。
+      setTimeout(next, 0);
+    });
+  };
+
+  next();
+}
+
+function formatOps(operationCount, operationTime) {
+  return `${operationTime === 0 ? 0 : Math.round(operationCount * 1000 / operationTime)} OPS`;
+}
+
+function testForLet(then) {
+  let seed = lcgConfig.initialSeed;
   for (let i = 0; i < testLoopCount; i++) {
     seed = lcgNext(seed);
   }
-
-  const endTime = Date.now();
-  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
-
-  then(`${duration}ms`);
+  then(testLoopCount);
 }
 
 function testWhile(then) {
   let seed = lcgConfig.initialSeed;
   let i = 0;
-  const startTime = Date.now();
-
   while (i < testLoopCount) {
     seed = lcgNext(seed);
     i++;
   }
-
-  const endTime = Date.now();
-  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
-  then(`${duration}ms`);
+  then(testLoopCount);
 }
 
 function testForIn(then) {
   let seed = lcgConfig.initialSeed;
-
-  const startTime = Date.now();
-
   for (let i in testArr) {
     seed = lcgNext(seed);
   }
-
-  const endTime = Date.now();
-  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
-
-  then(`${duration}ms`);
+  then(testLoopCount);
 }
 
 function testForEach(then) {
   let seed = lcgConfig.initialSeed;
-
-  const startTime = Date.now();
-
   testArr.forEach(() => {
     seed = lcgNext(seed);
   });
-
-  const endTime = Date.now();
-  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
-
-  then(`${duration}ms`);
+  then(testLoopCount);
 }
 
 function testMap(then) {
   let seed = lcgConfig.initialSeed;
-
-  const startTime = Date.now();
-
   testArr.map(() => {
     seed = lcgNext(seed);
   });
-
-  const endTime = Date.now();
-  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
-
-  then(`${duration}ms`);
+  then(testLoopCount);
 }
 
 function testRecursive(then) {
   let seed = lcgConfig.initialSeed;
   let count = 0;
-
   const next = () => {
-    if (count >= testLoopCount) {
-      const endTime = Date.now();
-      const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
-
-      return then(`${duration}ms`);
-    }
-
+    if (count >= testLoopCount) return then(count);
     seed = lcgNext(seed);
     count++;
     return next();
   };
-
-  const startTime = Date.now();
-
   next();
 }
 
 function testTailRecursive(then) {
   let seed = lcgConfig.initialSeed;
   let count = 0;
-
   const next = () => {
     seed = lcgNext(seed);
     count++;
     return (count >= testLoopCount) || next();
   };
-
-  const startTime = Date.now();
-
-  next(testLoopCount);
-
-  const endTime = Date.now();
-  const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
-
-  then(`${duration}ms`);
+  next();
+  then(count);
 }
 
 function testTimeoutRecursive(then) {
   let seed = lcgConfig.initialSeed;
   let count = 0;
-
   const next = () => {
-    if (count >= testLoopCount) {
-      const endTime = Date.now();
-      const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
-
-      return then(`${duration}ms`);
-    }
-
+    if (count >= testLoopCount) return then(count);
     seed = lcgNext(seed);
     count++;
     setTimeout(next, 0);
   };
-
-  const startTime = Date.now();
-
   next();
 }
 
 function testTimeoutRecursive_1in10(then) {
   let seed = lcgConfig.initialSeed;
   let count = 0;
-
   const next = () => {
-    if (count >= testLoopCount) {
-      const endTime = Date.now();
-      const duration = ((endTime - startTime) / testLoopCount).toFixed(3);
-
-      return then(`${duration}ms`);
-    }
-
+    if (count >= testLoopCount) return then(count);
     seed = lcgNext(seed);
     count++;
-
     if (count % 10 === 0) {
       return setTimeout(next, 0);
-    } else {
-      return next();
     }
+    return next();
   };
-
-  const startTime = Date.now();
-
   next();
 }

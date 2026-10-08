@@ -12,7 +12,7 @@
     <list-item
       style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
-        <text class="text-38px title-text">循环速度</text>
+        <text class="text-38px title-text">循环性能</text>
         <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
@@ -33,8 +33,7 @@
     <list-item for="{{tests}}" class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
       <div on:click="runTest({{$item.name}})" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
         <text class="text-30px interactiveCard-rowText">{{$item.name}}</text>
-        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{!!$item.msg ? $item.msg :
-          (results[$item.name] || "未知")}}</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{$item.running ? ($item.progress + "%") : (results[$item.name] || "未知")}}</text>
       </div>
     </list-item>
 
