@@ -13,25 +13,27 @@
       style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
         <text class="text-38px title-text">循环速度</text>
-        <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
       </stack>
     </list-item>
 
     <!-- btn -->
-    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="runAllTests" class="text-btnCard"
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="runAllTests" class="interactiveCard-base"
         style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px">运行全部</text>
+        <div class="interactiveCard-row">
+          <text class="text-30px">运行全部</text>
+        </div>
       </div>
     </list-item>
 
     <!-- btn -->
-    <list-item for="{{tests}}" class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="runTest({{$item.name}})" class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">{{$item.name}}</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{!!$item.msg ? $item.msg :
+    <list-item for="{{tests}}" class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div on:click="runTest({{$item.name}})" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">{{$item.name}}</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{!!$item.msg ? $item.msg :
           (results[$item.name] || "未知")}}</text>
       </div>
     </list-item>

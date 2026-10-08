@@ -13,7 +13,7 @@
       style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
         <text class="text-38px title-text">设备信息</text>
-        <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
       </stack>
@@ -21,94 +21,94 @@
 
     <!-- 设备信息卡片 -->
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">品牌</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{brand}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">品牌</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{brand}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">生产商</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{manufacturer}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">生产商</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{manufacturer}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">型号</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{model}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">型号</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{model}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">代号</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{product}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">代号</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{product}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">系统语言</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{language}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">系统语言</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{language}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">系统地区</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{region}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">系统地区</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{region}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">横向分辨率(px)</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{windowWidth}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">横向分辨率(px)</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{windowWidth}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">纵向分辨率(px)</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{windowHeight}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">纵向分辨率(px)</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{windowHeight}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">像素密度(dpi)</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{screenDensity}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">像素密度(dpi)</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{screenDensity}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">屏幕形状</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{screenShape}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">屏幕形状</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{screenShape}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">系统API版本</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{apiVersion}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">系统API版本</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{apiVersion}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">设备类型</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{deviceType}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">设备类型</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{deviceType}}</text>
       </div>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper infoCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div class="text-btnCard infoCard" style="width: {{uiSizes.uiWidth}}px;">
-        <text class="text-30px text-btnCard-title">WearEngine版本</text>
-        <text class="text-30px text-btnCard-title infoCard-content" style="color: gray;">{{wearEngineVersion}}</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">WearEngine版本</text>
+        <text class="text-30px interactiveCard-rowText text-gray interactiveCard-textRowGap">{{wearEngineVersion}}</text>
       </div>
     </list-item>
 

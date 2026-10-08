@@ -10,7 +10,7 @@
   <div style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
     <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
       <text class="text-38px title-text">文字大小</text>
-      <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+      <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
         <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
       </div>
     </stack>
@@ -38,16 +38,16 @@
         fs: {{fontSize}}, h: {{fontSize * 1.25}}
       </text>
 
-      <div on:click="changeFontSize(-1)" class="ui-round-btn"
+      <div on:click="changeFontSize(-1)" class="roundBtn"
         style="left: 12px; top: 96px; background-color: #22ffffff;">
         <text class="text-38px">-</text>
       </div>
 
-      <div on:click="changeText" class="ui-round-btn" style="left: 102px; top: 96px; background-color: #22ffffff;">
+      <div on:click="changeText" class="roundBtn" style="left: 102px; top: 96px; background-color: #22ffffff;">
         <text class="text-38px">~</text>
       </div>
 
-      <div on:click="changeFontSize(1)" class="ui-round-btn"
+      <div on:click="changeFontSize(1)" class="roundBtn"
         style="left: 192px; top: 96px; background-color: #22ffffff;">
         <text class="text-38px">+</text>
       </div>

@@ -78,7 +78,8 @@ export default {
 
       // 绘制文字
       ctx.fillStyle = "#4ecdc4";
-      ctx.font = "24px sans-serif";
+      ctx.textAlign = "start";
+      ctx.font = "normal 24px sans-serif";
       ctx.fillText("canvas", textX, textY);
 
       this.animationId = setTimeout(move, Math.round(1000 / 30));

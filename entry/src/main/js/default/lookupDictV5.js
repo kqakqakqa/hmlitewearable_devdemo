@@ -36,6 +36,7 @@ function lookupDict(baseDir, key, then) {
       length: readLen,
 
       fail: (data, code) => {
+        console.error("lookupDict fail: " + code + " " + data);
         if (bestMatch.off !== -1) {
           readValue(bestMatch.off, bestMatch.len, bestMatch.depth, function (v) {
             then(false, bestMatch.key, v);

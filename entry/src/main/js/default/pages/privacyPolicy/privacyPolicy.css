@@ -1,1 +1,8 @@
 @import "../../common.css";
+
+.content-row {
+  flex-direction: column;
+  align-items: center;
+  background-color: transparent;
+}
+

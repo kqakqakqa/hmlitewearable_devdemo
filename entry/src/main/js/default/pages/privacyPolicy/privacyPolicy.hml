@@ -13,27 +13,35 @@
       style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
         <text class="text-38px title-text">隐私政策</text>
-        <div on:click="clickBack" class="ui-round-btn" style="left: {{uiSizes.uiWidth - 72}}px;">
+        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
       </stack>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 91px;">
+    <list-item class="content-row" style="width: {{uiSizes.screenWidth}}px; height: 91px;">
       <text class="text-30px" style="width: {{uiSizes.uiWidth}}px; height: 79px; text-align: center;">
         使用本应用前，请您阅读并同意隐私政策：
       </text>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 288px;">
+    <list-item class="content-row" style="width: {{uiSizes.screenWidth}}px; height: 288px;">
       <image style="width: 276px; height: 276px;" src="/common/qrcode_privacyPolicy.png"></image>
     </list-item>
 
-    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 74px;">
-      <text on:click="clickAccept" class="ui-btn">同意</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickAccept" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
+        <div class="interactiveCard-row">
+          <text class="text-30px">同意</text>
+        </div>
+      </div>
     </list-item>
-    <list-item class="text-btnCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 74px;">
-      <text on:click="clickReject" class="ui-btn">拒绝并退出</text>
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickReject" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
+        <div class="interactiveCard-row">
+          <text class="text-30px">拒绝并退出</text>
+        </div>
+      </div>
     </list-item>
 
     <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
