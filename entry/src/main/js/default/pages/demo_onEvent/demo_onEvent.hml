@@ -1,5 +1,7 @@
-<div on:swipe="swipeBack"
-  style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; flex-direction: column;">
+<stack style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;"></image>
+  <div on:swipe="swipeBack"
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; flex-direction: column;">
 
   <!-- timeBattery -->
   <div class="timeBatteryWrapper" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
@@ -32,7 +34,7 @@
       on:longpressrelease="onLongPressRelease" on:touchstart="onTouchStart" on:touchmove="onTouchMove"
       on:touchend="onTouchEnd" on:touchcancel="onTouchCancel" on:pinchstart="onPinchStart"
       on:pinchupdate="onPinchUpdate" on:pinchend="onPinchEnd" on:pinchcancel="onPinchCancel"
-      style="width: 276px; height: 180px; background-color: #222; border-radius: 24px;">
+      style="width: 276px; height: 180px; background-color: #22ffffff; border-radius: 24px;">
 
       <div
         style="width: 276px; height: 180px; background-color: transparent; align-items: center; justify-content: center;">
@@ -75,4 +77,5 @@
 
     </stack>
   </div>
-</div>
+  </div>
+</stack>

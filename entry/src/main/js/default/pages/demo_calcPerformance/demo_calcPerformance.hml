@@ -1,6 +1,8 @@
-<div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+<stack style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
+  <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;"></image>
+  <div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
   <list ref="bindRotation" on:swipe="swipeBack"
-    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
 
     <list-item class="timeBatteryWrapper"
       style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
@@ -35,4 +37,5 @@
     <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
 
   </list>
-</div>
+  </div>
+</stack>
