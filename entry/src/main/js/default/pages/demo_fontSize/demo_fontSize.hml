@@ -1,60 +1,59 @@
 <stack style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
-  <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;"></image>
+  <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  </image>
   <div on:swipe="swipeBack"
     style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; flex-direction: column;">
 
-  <!-- timeBattery -->
-  <div class="timeBatteryWrapper" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
-    <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
-  </div>
+    <!-- timeBattery -->
+    <div class="timeBatteryWrapper" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+    </div>
 
-  <!-- title -->
-  <div style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
-    <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
-      <text class="text-38px title-text">文字大小</text>
-      <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
-        <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
-      </div>
-    </stack>
-  </div>
-
-  <!-- rotation -->
-  <slider ref="bindRotation" on:change="onRotate" value="{{sliderValue}}" min="-1" max="1"
-    style="width: 0px; height: 0px; background-color: transparent;">
-  </slider>
-
-  <!-- text -->
-  <div style="width: {{uiSizes.screenWidth}}px; height: 180px; justify-content: center;">
-    <stack style="width: 276px; height: 180px; background-color: #22ffffff; border-radius: 24px;">
-
-      <div
-        style="width: 276px; height: 180px; background-color: transparent; align-items: center; justify-content: center;">
-        <div
-          style="width: 276px; height: {{fontSize * 1.25}}px; background-color: lightslategray; align-items: center; justify-content: center;">
-          <text if="{{refreshText}}"
-            style="width: {{fontSize * 20}}px; font-size: {{fontSize}}px; text-align: center; background-color: lightsteelblue;">{{text}}</text>
+    <!-- title -->
+    <div style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
+      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
+        <text class="text-38px title-text">文字大小</text>
+        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
-      </div>
+      </stack>
+    </div>
 
-      <text class="text-30px" style="left: 12px; top: 12px; color: gray;">
-        fs: {{fontSize}}, h: {{fontSize * 1.25}}
-      </text>
+    <!-- rotation -->
+    <slider ref="bindRotation" on:change="onRotate" value="{{sliderValue}}" min="-1" max="1"
+      style="width: 0px; height: 0px; background-color: transparent;">
+    </slider>
 
-      <div on:click="changeFontSize(-1)" class="roundBtn"
-        style="left: 12px; top: 96px; background-color: #22ffffff;">
-        <text class="text-38px">-</text>
-      </div>
+    <!-- text -->
+    <div style="width: {{uiSizes.screenWidth}}px; height: 180px; justify-content: center;">
+      <stack style="width: 276px; height: 180px; background-color: #22ffffff; border-radius: 24px;">
 
-      <div on:click="changeText" class="roundBtn" style="left: 102px; top: 96px; background-color: #22ffffff;">
-        <text class="text-38px">~</text>
-      </div>
+        <div
+          style="width: 276px; height: 180px; background-color: transparent; align-items: center; justify-content: center;">
+          <div
+            style="width: 276px; height: {{fontSize * 1.25}}px; background-color: lightslategray; align-items: center; justify-content: center;">
+            <text if="{{refreshText}}"
+              style="width: {{fontSize * 20}}px; font-size: {{fontSize}}px; text-align: center; background-color: lightsteelblue;">{{text}}</text>
+          </div>
+        </div>
 
-      <div on:click="changeFontSize(1)" class="roundBtn"
-        style="left: 192px; top: 96px; background-color: #22ffffff;">
-        <text class="text-38px">+</text>
-      </div>
+        <text class="text-30px text-gray" style="left: 12px; top: 12px;">
+          fs: {{fontSize}}, h: {{fontSize * 1.25}}
+        </text>
 
-    </stack>
-  </div>
+        <div on:click="changeFontSize(-1)" class="roundBtn" style="left: 12px; top: 96px; background-color: #22ffffff;">
+          <text class="text-38px">-</text>
+        </div>
+
+        <div on:click="changeText" class="roundBtn" style="left: 102px; top: 96px; background-color: #22ffffff;">
+          <text class="text-38px">~</text>
+        </div>
+
+        <div on:click="changeFontSize(1)" class="roundBtn" style="left: 192px; top: 96px; background-color: #22ffffff;">
+          <text class="text-38px">+</text>
+        </div>
+
+      </stack>
+    </div>
   </div>
 </stack>

@@ -1,4 +1,4 @@
-/* common.css v2 */
+/* common.css v3 */
 
 /* 单行 ×1.25, 换行 ×1.375 */
 .text-30px {
@@ -14,7 +14,7 @@
 }
 
 .text-gray {
-  color: gray;
+  color: #80ffffff;
 }
 
 .timeBatteryWrapper {

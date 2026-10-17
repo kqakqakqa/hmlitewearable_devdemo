@@ -3,8 +3,8 @@
     "bundleName": "com.github.kqakqakqa.hmlitewearable.devdemo",
     "vendor": "kqakqakqa",
     "version": {
-      "code": 31,
-      "name": "0.31.0"
+      "code": 32,
+      "name": "0.32.0"
     }
   },
   "deviceConfig": {},
@@ -48,6 +48,8 @@
           "pages/demo_loopPerformance/demo_loopPerformance",
           "pages/demo_calcPerformance/demo_calcPerformance",
           "pages/demo_deviceInfo/demo_deviceInfo",
+          "pages/demo_wearEngine/demo_wearEngine",
+          "pages/demo_wearEngineRecords/demo_wearEngineRecords",
           "pages/demo_sensorSubscribe/demo_sensorSubscribe"
         ],
         "name": "default"

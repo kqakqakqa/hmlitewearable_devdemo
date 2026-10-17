@@ -25,7 +25,8 @@ export default {
     heartRate: "",
     onBodyState: "",
 
-    moreSensors: [],
+    moreSensorsLen: 0,
+    moreSensorsStr: "",
   },
 
   onInit() {
@@ -48,7 +49,8 @@ export default {
       }
     }
     console.log("============================");
-    this.moreSensors = moreList;
+    this.moreSensorsLen = moreList.length;
+    this.moreSensorsStr = moreList.join("\n");
 
     this.subscribeAll();
   },
