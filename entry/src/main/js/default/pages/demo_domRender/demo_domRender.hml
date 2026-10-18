@@ -25,7 +25,7 @@
     <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
       <div on:click="runTest({{$item.name}})" class="interactiveCard-base"
         style="width: {{uiSizes.uiWidth}}px; height: 124px;">
-        <text class="text-30px interactiveCard-rowText">数量：{{elements.length}}</text>
+        <text class="text-30px interactiveCard-rowText">数量：{{divElements.length}} div + {{imageElements.length}} img</text>
         <text class="text-30px interactiveCard-textRowGap interactiveCard-rowText">帧率：30 → {{currentFps}}</text>
       </div>
     </list-item>
@@ -34,18 +34,22 @@
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 192px; justify-content: center;">
       <stack if="{{stackVisible}}"
         style="width: {{uiSizes.uiWidth}}px; height: 180px; background-color: #22ffffff; border-radius: 24px;">
-        <div for="{{elements}}"
+        <div for="{{divElements}}"
           style="width: 12px; height: 12px; left: {{$item.x - 6}}px; top: {{$item.y - 6}}px; border-radius: 12px; background-color: cornflowerblue;">
         </div>
+        <image for="{{imageElements}}" src="/common/domRenderComponent.png"
+          style="width: 12px; height: 12px; left: {{$item.x - 6}}px; top: {{$item.y - 6}}px;">
+        </image>
       </stack>
     </list-item>
 
     <!-- 控制按钮 -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 132px; justify-content: center;">
-      <div style="width: 276px; height: 126px; flex-wrap: wrap; justify-content: space-between;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 174px; justify-content: center;">
+      <div style="width: 276px; height: 168px; flex-wrap: wrap; justify-content: space-between;">
         <text on:click="startAnimation" class="btn">开始</text>
         <text on:click="stopAnimation" class="btn">停止</text>
-        <text on:click="addElements(1)" class="btn">+1元素</text>
+        <text on:click="addElements(1, 'div')" class="btn">+1 div</text>
+        <text on:click="addElements(1, 'image')" class="btn">+1 img</text>
         <text on:click="clearElements" class="btn">清除元素</text>
         <text on:click="hideElements" class="btn">隐藏</text>
         <text on:click="showElements" class="btn">显示</text>

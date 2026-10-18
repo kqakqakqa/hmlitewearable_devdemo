@@ -13,12 +13,15 @@ export default {
     stackVisible: true,
 
     elements: [],
+    divElements: [],
+    imageElements: [],
 
     isRunning: false,
     animationInterval: null,
+    frameRotation: 0,
 
     currentFps: "--",
-    lastFrameTime: 0,
+    frameTimes: [],
   },
 
   onInit() {
@@ -36,7 +39,7 @@ export default {
     this.stopAnimation();
   },
 
-  addElements(count) {
+  addElements(count, type) {
     // 使用画布常量计算中心点位置
     const centerX = stackWidth / 2;
     const centerY = stackHeight / 2;
@@ -52,30 +55,37 @@ export default {
       const radius = scaleFactor * Math.sqrt(index);
       const angle = index * goldenAngle;
 
-      this.elements.push({
+      const element = {
+        type: type,
         x: centerX + radius * Math.cos(angle),
         y: centerY + radius * Math.sin(angle),
         baseX: centerX + radius * Math.cos(angle),
         baseY: centerY + radius * Math.sin(angle),
         angle: angle,
         radius: radius,
-        rotationAngle: 0,
         vx: 0,
         vy: 0,
-      });
+      };
+      this.elements.push(element);
+      if (type === "div") this.divElements.push(element);
+      if (type === "image") this.imageElements.push(element);
     }
   },
 
   clearElements() {
     this.stopAnimation();
     this.elements = [];
+    this.divElements = [];
+    this.imageElements = [];
   },
 
   startAnimation() {
     if (this.isRunning) return;
 
     this.isRunning = true;
-    this.lastFrameTime = Date.now();
+    this.currentFps = "--";
+    this.frameTimes = [];
+    this.frameRotation = 0;
 
     // 使用画布常量计算并固定中心点位置，避免运行时漂移
     const centerX = stackWidth / 2;
@@ -85,35 +95,36 @@ export default {
       if (!this.isRunning) return;
 
       const timestamp = Date.now();
+      const frameTimes = this.frameTimes;
+      if (frameTimes.length === 15) frameTimes.shift();
+      frameTimes.push(timestamp);
 
       // 更新元素位置，让它们绕中心点旋转
       const rotationSpeed = 0.1; // 旋转速度
+      this.frameRotation += rotationSpeed;
+      const cos = Math.cos(this.frameRotation);
+      const sin = Math.sin(this.frameRotation);
 
       for (let i = 0; i < this.elements.length; i++) {
-        let element = this.elements[i];
+        const element = this.elements[i];
 
-        // 更新旋转角度
-        element.rotationAngle += rotationSpeed;
-
-        // 计算旋转后的位置
-        const cos = Math.cos(element.rotationAngle);
-        const sin = Math.sin(element.rotationAngle);
-
-        // 相对于中心点的偏移
+        // 相对于初始位置的偏移
         const offsetX = element.baseX - centerX;
         const offsetY = element.baseY - centerY;
 
-        // 应用旋转
+        // 应用当前帧旋转
         element.x = centerX + offsetX * cos - offsetY * sin;
         element.y = centerY + offsetX * sin + offsetY * cos;
       }
 
-      // 计算瞬时帧率（每帧计算）
-      const actualFrameTime = timestamp - this.lastFrameTime;
-      if (actualFrameTime > 0) {
-        this.currentFps = (1000 / actualFrameTime).toFixed(2);
-      }
-      this.lastFrameTime = timestamp;
+      // 最近15帧中，取1秒内最早一帧到当前帧的间隔计算平均帧率。
+      let first = 0;
+      while (first < frameTimes.length - 1 && timestamp - frameTimes[first] > 1000) first++;
+      const count = frameTimes.length - first;
+      const elapsed = timestamp - frameTimes[first];
+      this.currentFps = count > 1 && elapsed > 0
+        ? ((count - 1) * 1000 / elapsed).toFixed(2)
+        : "--";
 
       // 使用setTimeout模拟requestAnimationFrame，约60fps
       this.animationInterval = setTimeout(animate, estFrameTime);
@@ -130,6 +141,8 @@ export default {
       this.animationInterval = null;
     }
     this.currentFps = "--";
+    this.frameTimes = [];
+    this.frameRotation = 0;
   },
 
   hideElements() {

@@ -37,12 +37,9 @@
         on:pinchupdate="onPinchUpdate" on:pinchend="onPinchEnd" on:pinchcancel="onPinchCancel"
         style="width: 276px; height: 180px; background-color: #22ffffff; border-radius: 24px;">
 
-        <div
-          style="width: 276px; height: 180px; background-color: transparent; align-items: center; justify-content: center;">
-          <text class="text-gray" style="width: 276px; font-size: 30px; text-align: center;">
-            {{status || "playground"}}
-          </text>
-        </div>
+        <text class="text-gray" style="top: 71px; width: 276px; font-size: 30px; text-align: center;">
+          {{status || "playground"}}\n{{touchSampleRate}}
+        </text>
 
         <image if="{{touchStatus !== 0}}" src="/common/hand_point_up_tap-36px.png"
           style="left: {{touchX - 18}}px; top: {{touchY - 18}}px; width: 36px; height: 36px; opacity: {{touchStatus === -1 ? '0.5' : 1}};">

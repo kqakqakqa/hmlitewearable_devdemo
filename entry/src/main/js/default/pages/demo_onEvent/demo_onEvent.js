@@ -15,6 +15,8 @@ export default {
     touchX: 0,
     touchY: 0,
     touchStatus: 0,
+    touchSampleRate: "",
+    touchMoveTimes: [],
 
     pinchX: 0,
     pinchY: 0,
@@ -99,6 +101,8 @@ export default {
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = 1;
+    this.touchSampleRate = "";
+    this.touchMoveTimes = [];
   },
 
   onTouchMove(e) {
@@ -107,6 +111,19 @@ export default {
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = 1;
+
+    const now = Date.now();
+    const times = this.touchMoveTimes;
+    // 最近15次 touchmove 中，取1秒内最早一次到当前的间隔计算采样率。
+    if (times.length === 15) times.shift();
+    times.push(now);
+    let first = 0;
+    while (first < times.length - 1 && now - times[first] > 1000) first++;
+    const count = times.length - first;
+    const elapsed = now - times[first];
+    this.touchSampleRate = count > 1 && elapsed > 0
+      ? ((count - 1) * 1000 / elapsed).toFixed(1) + "Hz"
+      : "";
   },
 
   onTouchEnd(e) {
@@ -115,6 +132,8 @@ export default {
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = -1;
+    this.touchSampleRate = "";
+    this.touchMoveTimes = [];
   },
 
   onTouchCancel(e) {
@@ -123,6 +142,7 @@ export default {
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = -1;
+    this.touchMoveTimes = [];
   },
 
   onPinchStart(e) {
