@@ -25,7 +25,7 @@
       <div on:click="pageTo('menu_about')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">关于</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -34,7 +34,7 @@
       <div on:click="pageTo('privacyPolicy')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">隐私政策</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item> -->
@@ -43,7 +43,7 @@
       <div on:click="pageTo('menu_licenses')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">开源代码许可</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item> -->
@@ -52,7 +52,7 @@
       <div on:click="pageTo('menu_sponsor')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">支持作者</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>

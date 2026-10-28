@@ -3,8 +3,8 @@
     "bundleName": "com.github.kqakqakqa.hmlitewearable.devdemo",
     "vendor": "kqakqakqa",
     "version": {
-      "code": 33,
-      "name": "0.33.0"
+      "code": 34,
+      "name": "0.34.0"
     }
   },
   "deviceConfig": {},
@@ -37,6 +37,7 @@
           "pages/menu_licenses/menu_licenses",
           "pages/menu_sponsor/menu_sponsor",
           "pages/demo_index/demo_index",
+          "pages/metronome/metronome",
           "pages/demo_arrRender/demo_arrRender",
           "pages/demo_jsHeap/demo_jsHeap",
           "pages/demo_onEvent/demo_onEvent",

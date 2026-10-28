@@ -25,7 +25,7 @@
       <div on:click="clickCard('demo_arrRender')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">列表渲染</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -34,7 +34,7 @@
       <div on:click="clickCard('demo_jsHeap')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">js heap</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -43,7 +43,7 @@
       <div on:click="clickCard('demo_onEvent')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">事件</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -52,7 +52,7 @@
       <div on:click="clickCard('demo_fontSize')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">文字大小</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -61,7 +61,7 @@
       <div on:click="clickCard('demo_fileRead')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">文本读取</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -70,7 +70,7 @@
       <div on:click="clickCard('demo_fetchSize')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">fetch大小</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -79,7 +79,7 @@
       <div on:click="clickCard('demo_canvas')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">canvas</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -88,7 +88,7 @@
       <div on:click="clickCard('demo_domRender')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">渲染帧率</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -97,7 +97,7 @@
       <div on:click="clickCard('demo_loopPerformance')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">循环性能</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -106,7 +106,7 @@
       <div on:click="clickCard('demo_calcPerformance')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">运算性能</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -115,7 +115,7 @@
       <div on:click="clickCard('demo_deviceInfo')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">设备信息</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
@@ -124,7 +124,7 @@
       <div on:click="clickCard('demo_sensorSubscribe')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">传感器订阅</text>
-          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-gray.png"></image>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
         </div>
       </div>
     </list-item>
