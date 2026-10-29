@@ -1,44 +1,45 @@
 <stack style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
-  <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;"></image>
+  <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  </image>
   <div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
-  <list ref="bindRotation" on:swipe="swipeBack"
-    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
+    <list ref="bindRotation" on:swipe="swipeBack"
+      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
 
-    <!-- timeBattery -->
-    <list-item class="timeBatteryWrapper"
-      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
-      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
-    </list-item>
+      <!-- timeBattery -->
+      <list-item class="timeBatteryWrapper"
+        style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+        <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+      </list-item>
 
-    <!-- title -->
-    <list-item
-      style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
-      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
-        <text class="text-38px title-text">fetch大小</text>
-        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
-          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+      <!-- title -->
+      <list-item
+        style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
+        <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
+          <text class="text-38px title-text">fetch大小</text>
+          <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
+            <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+          </div>
+        </stack>
+      </list-item>
+
+      <!-- model fetchSize speed -->
+      <list-item style="width: {{uiSizes.screenWidth}}px; height: 186px; justify-content: center;">
+        <text class="text-30px" style="width: {{uiSizes.screenWidth}}px; height: 174px; text-align: center;">
+          型号: {{model}}\n{{isTesting ? ("测试：" + testingSize + "字节" + (retryCount > 0 ? "（第" + (retryCount + 1) + "次）" : "")) : ("最大数据量: " + fetchSize)}}\n速度: {{fetchSpeed !== null ? (fetchSpeed + "字节/秒") : "未知"}}\n{{msg}}
+        </text>
+      </list-item>
+
+      <!-- btn -->
+      <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+        <div on:click="clickTest" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
+          <div class="interactiveCard-row">
+            <text class="text-30px">{{isTesting ? "取消" : "测试"}}</text>
+          </div>
         </div>
-      </stack>
-    </list-item>
+      </list-item>
 
-    <!-- model fetchSize -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 174px; justify-content: center;">
-      <text class="text-30px" style="width: {{uiSizes.screenWidth}}px; height: 162px; text-align: center;">
-        型号: {{model}}\n最大数据量: {{fetchSize}}\n{{msg}}
-      </text>
-    </list-item>
+      <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
 
-    <!-- btn -->
-    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
-      <div on:click="clickTest" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
-        <div class="interactiveCard-row">
-          <text class="text-30px">{{isTesting ? "取消" : "测试"}}</text>
-        </div>
-      </div>
-    </list-item>
-
-    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
-
-  </list>
+    </list>
   </div>
 </stack>

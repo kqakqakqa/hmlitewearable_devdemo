@@ -10,6 +10,9 @@ const defaults = {
 
   loopPerformanceResults: {},
   mathPerformanceResults: {},
+
+  fetchSize: "未知",
+  fetchSpeed: null,
 };
 
 // 双保险：每个键在 kvstore 下占两个槽（<key>_slot1 / <key>_slot2）。
