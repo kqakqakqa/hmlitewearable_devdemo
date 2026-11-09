@@ -1,9 +1,9 @@
 {
   "type": "module",
   "scripts": {
-    "buildBin": "node hmlwsdk-build.js bin",
-    "buildApp": "node hmlwsdk-build.js app",
-    "buildSignedHap": "node hmlwsdk-build.js signedHap",
-    "buildSignedApp": "node hmlwsdk-build.js signedApp"
+    "build": "hmlwsdk build"
+  },
+  "devDependencies": {
+    "hmlwsdk": "github:kqakqakqa/hmlwsdk"
   }
 }

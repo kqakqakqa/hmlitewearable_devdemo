@@ -129,6 +129,15 @@
       </div>
     </list-item>
 
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickCard('demo_imgUri')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
+        <div class="interactiveCard-row">
+          <text class="text-30px interactiveCard-rowText">图片uri</text>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
+        </div>
+      </div>
+    </list-item>
+
     <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
 
   </list>

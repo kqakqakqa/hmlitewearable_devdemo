@@ -1,0 +1,12 @@
+@import "../../common.css";
+
+/*
+ * 图片 uri 测试卡片的内容行
+ * 源图 456x68，按 228x34 显示，保持 2 倍图
+ * 卡片高度 124 = 24(padding) + 38(标题) + 4(间距) + 34(图片) + 24(padding)
+ */
+.imgUriCard-img {
+  width: 228px;
+  height: 34px;
+  margin-left: 24px;
+}

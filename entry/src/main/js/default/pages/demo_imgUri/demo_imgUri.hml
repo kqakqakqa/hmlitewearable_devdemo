@@ -1,0 +1,91 @@
+<stack style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
+  <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;"></image>
+  <div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
+  <list ref="bindRotation" on:swipe="swipeBack"
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
+
+    <!-- timeBattery -->
+    <list-item class="timeBatteryWrapper" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+    </list-item>
+
+    <!-- title -->
+    <list-item
+      style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
+      <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
+        <text class="text-38px title-text">图片 uri</text>
+        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+        </div>
+      </stack>
+    </list-item>
+
+    <!-- 绝对路径，应用资源根 -->
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">/*.png</text>
+        <image class="imgUriCard-img interactiveCard-textRowGap" src="/imgUri.png"></image>
+      </div>
+    </list-item>
+
+    <!-- 相对路径，基准为当前页面目录 -->
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">*.png</text>
+        <image class="imgUriCard-img interactiveCard-textRowGap" src="imgUri.png"></image>
+      </div>
+    </list-item>
+
+    <!-- 绝对路径，common -->
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">/common/*.png</text>
+        <image class="imgUriCard-img interactiveCard-textRowGap" src="/common/imgUri.png"></image>
+      </div>
+    </list-item>
+
+    <!-- 相对路径，页面目录下的 common -->
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">common/*.png</text>
+        <image class="imgUriCard-img interactiveCard-textRowGap" src="common/imgUri.png"></image>
+      </div>
+    </list-item>
+
+    <!-- 相对路径，上跳两级回到应用资源根 -->
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">../../*.png</text>
+        <image class="imgUriCard-img interactiveCard-textRowGap" src="../../imgUri.png"></image>
+      </div>
+    </list-item>
+
+    <!-- 绝对路径再上跳两级，预期加载不到 -->
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">/../../*.png</text>
+        <image class="imgUriCard-img interactiveCard-textRowGap" src="/../../imgUri.png"></image>
+      </div>
+    </list-item>
+
+    <!-- 相对路径先上跳一级再回到当前页面目录，和上一条指向同一张图，用于判断 ../ 是否被屏蔽 -->
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">../demo_imgUri/*.png</text>
+        <image class="imgUriCard-img interactiveCard-textRowGap" src="../demo_imgUri/imgUri.png"></image>
+      </div>
+    </list-item>
+
+    <!-- 沙盒路径，rawfile 里的图片，API 10 及以上支持；标题过长，字号按 22px 单行 -->
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px; height: 136px;">
+      <div class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px; height: 124px;">
+        <text class="text-30px interactiveCard-rowText">internal://app/</text>
+        <image class="imgUriCard-img interactiveCard-textRowGap" src="internal://app/rawfile/imgUri.png"></image>
+      </div>
+    </list-item>
+
+    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
+
+  </list>
+  </div>
+</stack>
