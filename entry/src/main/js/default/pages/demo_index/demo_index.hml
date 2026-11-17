@@ -49,6 +49,15 @@
     </list-item>
 
     <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
+      <div on:click="clickCard('demo_eventFlow')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
+        <div class="interactiveCard-row">
+          <text class="text-30px interactiveCard-rowText">事件流</text>
+          <image class="interactiveCard-actionIcon" src="/common/chevron_right-30px-translucent.png"></image>
+        </div>
+      </div>
+    </list-item>
+
+    <list-item class="interactiveCard-wrapper" style="width: {{uiSizes.screenWidth}}px;">
       <div on:click="clickCard('demo_fontSize')" class="interactiveCard-base" style="width: {{uiSizes.uiWidth}}px;">
         <div class="interactiveCard-row">
           <text class="text-30px interactiveCard-rowText">文字大小</text>

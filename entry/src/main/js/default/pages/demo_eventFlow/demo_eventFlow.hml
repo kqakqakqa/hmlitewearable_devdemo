@@ -1,0 +1,202 @@
+<stack style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  </image>
+  <div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
+  <list ref="bindRotation"
+    style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
+
+    <!-- timeBattery -->
+    <list-item class="timeBatteryWrapper"
+      style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.topMargin + 24}}px;">
+      <text class="text-30px timeBatteryStr">{{timeBatteryStr}}</text>
+    </list-item>
+
+    <!-- title -->
+    <!-- 右滑返回只绑在标题条上：list 上不能再绑，否则 playground 里的 swiper 右滑会冒泡上来直接返回 -->
+    <list-item
+      style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
+      <stack on:swipe="swipeBack" style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
+        <text class="text-38px title-text">事件流</text>
+        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
+          <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
+        </div>
+      </stack>
+    </list-item>
+
+    <!-- 描述：跟着场景整块换，行数决定高度；宽度和 playground 一样是 276 -->
+    <!-- Lite 的 text 不会自动折行，超宽直接被截断，所以描述按行拆成一个 text 一行，文案由 js 里的 scenes 表提供 -->
+    <!-- justify-content 必须和 playground 一样居中，否则整块会贴到 x=0，圆屏左侧直接被切掉 -->
+    <list-item
+      style="width: {{uiSizes.screenWidth}}px; height: {{descHeight}}px; justify-content: center; background-color: transparent;">
+      <div style="width: 276px; flex-direction: column; align-items: flex-start; background-color: transparent;">
+        <text class="text-30px" style="width: 276px; height: 38px;">{{desc0}}</text>
+        <text if="{{descLines > 1}}" class="text-30px" style="width: 276px; height: 38px;">{{desc1}}</text>
+        <text if="{{descLines > 2}}" class="text-30px" style="width: 276px; height: 38px;">{{desc2}}</text>
+        <text if="{{descLines > 3}}" class="text-30px" style="width: 276px; height: 38px;">{{desc3}}</text>
+        <text if="{{descLines > 4}}" class="text-30px" style="width: 276px; height: 38px;">{{desc4}}</text>
+        <text if="{{descLines > 5}}" class="text-30px" style="width: 276px; height: 38px;">{{desc5}}</text>
+      </div>
+    </list-item>
+
+    <!-- 点击结果：放在 playground 上面，宽度同样是 276 -->
+    <!-- 按回调触发顺序记元素编号，用 > 连接；只有一个编号说明事件没往上冒泡；最后一次命中 2 秒后变回「点一下」 -->
+    <list-item
+      style="width: {{uiSizes.screenWidth}}px; height: 38px; justify-content: center; background-color: transparent;">
+      <text class="text-30px" style="width: 276px; height: 38px; text-align: center;">{{hits === "" ? "点一下" : hits}}</text>
+    </list-item>
+
+    <!-- playground：一个场景一页，左右滑动切场景；面板沿用 demo_onEvent 的 #22ffffff + 24 圆角 -->
+    <!-- on:swipe 绑在 playground 上接住里面的滑动，不让它继续往上传（往上就是 swipeBack 了） -->
+    <list-item
+      style="width: {{uiSizes.screenWidth}}px; height: 160px; justify-content: center; background-color: transparent;">
+      <stack on:swipe="onPlaygroundSwipe"
+        style="width: 276px; height: 160px; background-color: #22ffffff; border-radius: 24px;">
+        <swiper loop="false" on:change="onSceneChange"
+          style="width: 276px; height: 160px; background-color: transparent;">
+
+          <!-- 场景 1：父元素 on:click，三个子元素分别是 on / grab / 无事件（红=on 蓝=grab 黄=无） -->
+          <div
+            style="width: 276px; height: 160px; background-color: transparent; align-items: center; justify-content: center;">
+            <stack style="width: 252px; height: 136px; background-color: transparent;">
+              <stack on:click="hit('1.1')"
+                style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
+                <div on:click="hit('1.1.1')"
+                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+                <div grab:click="hit('1.1.2')"
+                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
+                <div style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+              </stack>
+            </stack>
+          </div>
+
+          <!-- 场景 2：和场景 1 完全同位置同颜色，只把父元素换成 grab:click -->
+          <div
+            style="width: 276px; height: 160px; background-color: transparent; align-items: center; justify-content: center;">
+            <stack style="width: 252px; height: 136px; background-color: transparent;">
+              <stack grab:click="hit('2.1')"
+                style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
+                <div on:click="hit('2.1.1')"
+                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+                <div grab:click="hit('2.1.2')"
+                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
+                <div style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+              </stack>
+            </stack>
+          </div>
+
+          <!-- 场景 3：父元素没有绑定任何事件，三个子元素依旧是 on / grab / 无事件 -->
+          <div
+            style="width: 276px; height: 160px; background-color: transparent; align-items: center; justify-content: center;">
+            <stack style="width: 252px; height: 136px; background-color: transparent;">
+              <stack
+                style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
+                <div on:click="hit('3.1.1')"
+                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+                <div grab:click="hit('3.1.2')"
+                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
+                <div style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+              </stack>
+            </stack>
+          </div>
+
+          <!-- 场景 4：下层块 on:click，跟三块同级块 on / grab / 无事件互相压着（兄弟重叠，不嵌套） -->
+          <!-- 下层块故意只做成下半部的一条横带（y 62~132），上沿从三块中间穿过去，三块上半截露在它外面 -->
+          <!-- 这样就不会被看成「灰色父元素 + 包在里面的子元素」，和场景 1 的父子结构区分开 -->
+          <div
+            style="width: 276px; height: 160px; background-color: transparent; align-items: center; justify-content: center;">
+            <stack style="width: 252px; height: 136px; background-color: transparent;">
+              <stack on:click="hit('4.1')"
+                style="left: 0px; top: 62px; width: 252px; height: 70px; background-color: #33ffffff;"></stack>
+              <div on:click="hit('4.2')"
+                style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+              <div grab:click="hit('4.3')"
+                style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
+              <div style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+            </stack>
+          </div>
+
+          <!-- 场景 5：同场景 4，把下层那条横带换成 grab:click -->
+          <div
+            style="width: 276px; height: 160px; background-color: transparent; align-items: center; justify-content: center;">
+            <stack style="width: 252px; height: 136px; background-color: transparent;">
+              <stack grab:click="hit('5.1')"
+                style="left: 0px; top: 62px; width: 252px; height: 70px; background-color: #33ffffff;"></stack>
+              <div on:click="hit('5.2')"
+                style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+              <div grab:click="hit('5.3')"
+                style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
+              <div style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+            </stack>
+          </div>
+
+          <!-- 场景 6：同场景 4，把下层那条横带的事件去掉 -->
+          <div
+            style="width: 276px; height: 160px; background-color: transparent; align-items: center; justify-content: center;">
+            <stack style="width: 252px; height: 136px; background-color: transparent;">
+              <stack
+                style="left: 0px; top: 62px; width: 252px; height: 70px; background-color: #33ffffff;"></stack>
+              <div on:click="hit('6.2')"
+                style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+              <div grab:click="hit('6.3')"
+                style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
+              <div style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+            </stack>
+          </div>
+
+          <!-- 场景 7：底板 on:click，里面三块同色（红=on）但样式不同：实心 / 透明底+边框 / opacity 0 -->
+          <!-- 底板就是场景 5 里那个「被盖住的一层」，用来接住穿透下来的点击 -->
+          <div
+            style="width: 276px; height: 160px; background-color: transparent; align-items: center; justify-content: center;">
+            <stack style="width: 252px; height: 136px; background-color: transparent;">
+              <stack on:click="hit('7.1')"
+                style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
+                <div on:click="hit('7.1.1')"
+                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+                <div on:click="hit('7.1.2')"
+                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: transparent; border-width: 4px; border-color: #ffe14d4d;"></div>
+                <div on:click="hit('7.1.3')"
+                  style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d; opacity: 0;"></div>
+              </stack>
+            </stack>
+          </div>
+
+          <!-- 场景 8：同场景 7，三块全换成 grab:click（蓝= grab） -->
+          <div
+            style="width: 276px; height: 160px; background-color: transparent; align-items: center; justify-content: center;">
+            <stack style="width: 252px; height: 136px; background-color: transparent;">
+              <stack on:click="hit('8.1')"
+                style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
+                <div grab:click="hit('8.1.1')"
+                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
+                <div grab:click="hit('8.1.2')"
+                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: transparent; border-width: 4px; border-color: #ff4d8bfe;"></div>
+                <div grab:click="hit('8.1.3')"
+                  style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe; opacity: 0;"></div>
+              </stack>
+            </stack>
+          </div>
+
+          <!-- 场景 9：同场景 7，三块都不绑事件（黄=无事件），看它们会不会挡住底板的点击 -->
+          <div
+            style="width: 276px; height: 160px; background-color: transparent; align-items: center; justify-content: center;">
+            <stack style="width: 252px; height: 136px; background-color: transparent;">
+              <stack on:click="hit('9.1')"
+                style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
+                <div style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+                <div
+                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: transparent; border-width: 4px; border-color: #ffe1c24d;"></div>
+                <div
+                  style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d; opacity: 0;"></div>
+              </stack>
+            </stack>
+          </div>
+
+        </swiper>
+      </stack>
+    </list-item>
+
+    <list-item style="width: 0px; height: {{uiSizes.topMargin - 12}}px; background-color: transparent;"></list-item>
+
+  </list>
+  </div>
+</stack>
