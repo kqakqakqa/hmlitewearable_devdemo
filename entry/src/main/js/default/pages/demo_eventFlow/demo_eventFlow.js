@@ -5,7 +5,7 @@ console.info("pages/demo_eventFlow/demo_eventFlow onInit");
 const sameTapWindow = 200;
 
 // 命中链在最后一次回调之后保留多久（毫秒），到点变回「点一下」
-const hitResetDelay = 2000;
+const hitResetDelay = 1000;
 
 // 每个场景一段描述。元素里面不写字，靠颜色和位置对照这里的说明；
 // Lite 的 text 不会自动折行（超宽直接截断），所以文案在这里按行拆好，一行最多约 8 个中文字。
@@ -109,6 +109,12 @@ export default {
     hits: "",
     lastHitAt: 0,
     hitTimer: null,
+
+    // 点击指示：位置直接用事件里的屏幕坐标（页面根 stack 和屏幕重合，不用换算），
+    // 图像 36px 宽，所以要往回退 18 才是中心对齐手指；不点的时候 tapStatus 为 0 就不渲染这张图
+    tapX: 0,
+    tapY: 0,
+    tapStatus: 0,
   },
 
   onInit() {
@@ -151,18 +157,27 @@ export default {
     this.clearHit();
   },
 
-  // 所有测试元素都回调到这里，id 就是描述里写的元素编号
-  hit(id) {
-    console.info("[eventFlow] hit " + id);
+  // 所有测试元素都回调到这里：id 就是描述里写的元素编号。
+  // 带参绑定会被 ace-loader 编译成 function (evt) { _vm.hit('1.1', evt) }，事件对象是追加在参数末尾的，所以 evt 是第二个参数
+  hit(id, evt) {
+    console.info("[eventFlow] hit " + id + " " + JSON.stringify(evt));
 
     const now = Date.now();
     this.hits = now - this.lastHitAt > sameTapWindow ? id : this.hits + ">" + id;
     this.lastHitAt = now;
 
-    // 2 秒内没有新的命中就变回「点一下」
+    // 点击指示就显示在手指点的位置，和命中链共用下面这个定时器一起复位
+    if (evt) {
+      this.tapX = evt.globalX;
+      this.tapY = evt.globalY;
+      this.tapStatus = 1;
+    }
+
+    // 1 秒内没有新的命中就变回「点一下」，点击指示同时收掉
     this.clearHitTimer();
     this.hitTimer = setTimeout(() => {
       this.hits = "";
+      this.tapStatus = 0;
       this.hitTimer = null;
     }, hitResetDelay);
   },
@@ -170,6 +185,7 @@ export default {
   clearHit() {
     this.clearHitTimer();
     this.hits = "";
+    this.tapStatus = 0;
     this.lastHitAt = 0;
   },
 

@@ -39,7 +39,7 @@
     </list-item>
 
     <!-- 点击结果：放在 playground 上面，宽度同样是 276 -->
-    <!-- 按回调触发顺序记元素编号，用 > 连接；只有一个编号说明事件没往上冒泡；最后一次命中 2 秒后变回「点一下」 -->
+    <!-- 按回调触发顺序记元素编号，用 > 连接；只有一个编号说明事件没往上冒泡；最后一次命中 1 秒后变回「点一下」 -->
     <list-item
       style="width: {{uiSizes.screenWidth}}px; height: 38px; justify-content: center; background-color: transparent;">
       <text class="text-30px" style="width: 276px; height: 38px; text-align: center;">{{hits === "" ? "点一下" : hits}}</text>
@@ -61,10 +61,10 @@
               <stack on:click="hit('1.1')"
                 style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
                 <div on:click="hit('1.1.1')"
-                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+                  style="left: 4px; top: 4px; width: 96px; height: 80px; background-color: #ffe14d4d;"></div>
                 <div grab:click="hit('1.1.2')"
-                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
-                <div style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+                  style="left: 76px; top: 28px; width: 96px; height: 80px; background-color: #ff4d8bfe;"></div>
+                <div style="left: 148px; top: 52px; width: 96px; height: 80px; background-color: #ffe1c24d;"></div>
               </stack>
             </stack>
           </div>
@@ -76,10 +76,10 @@
               <stack grab:click="hit('2.1')"
                 style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
                 <div on:click="hit('2.1.1')"
-                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+                  style="left: 4px; top: 4px; width: 96px; height: 80px; background-color: #ffe14d4d;"></div>
                 <div grab:click="hit('2.1.2')"
-                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
-                <div style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+                  style="left: 76px; top: 28px; width: 96px; height: 80px; background-color: #ff4d8bfe;"></div>
+                <div style="left: 148px; top: 52px; width: 96px; height: 80px; background-color: #ffe1c24d;"></div>
               </stack>
             </stack>
           </div>
@@ -91,10 +91,10 @@
               <stack
                 style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
                 <div on:click="hit('3.1.1')"
-                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+                  style="left: 4px; top: 4px; width: 96px; height: 80px; background-color: #ffe14d4d;"></div>
                 <div grab:click="hit('3.1.2')"
-                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
-                <div style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+                  style="left: 76px; top: 28px; width: 96px; height: 80px; background-color: #ff4d8bfe;"></div>
+                <div style="left: 148px; top: 52px; width: 96px; height: 80px; background-color: #ffe1c24d;"></div>
               </stack>
             </stack>
           </div>
@@ -151,11 +151,11 @@
               <stack on:click="hit('7.1')"
                 style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
                 <div on:click="hit('7.1.1')"
-                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d;"></div>
+                  style="left: 4px; top: 4px; width: 96px; height: 80px; background-color: #ffe14d4d;"></div>
                 <div on:click="hit('7.1.2')"
-                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: transparent; border-width: 4px; border-color: #ffe14d4d;"></div>
+                  style="left: 76px; top: 28px; width: 96px; height: 80px; background-color: transparent; border-width: 4px; border-color: #ffe14d4d;"></div>
                 <div on:click="hit('7.1.3')"
-                  style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe14d4d; opacity: 0;"></div>
+                  style="left: 148px; top: 52px; width: 96px; height: 80px; background-color: #ffe14d4d; opacity: 0;"></div>
               </stack>
             </stack>
           </div>
@@ -167,11 +167,11 @@
               <stack on:click="hit('8.1')"
                 style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
                 <div grab:click="hit('8.1.1')"
-                  style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe;"></div>
+                  style="left: 4px; top: 4px; width: 96px; height: 80px; background-color: #ff4d8bfe;"></div>
                 <div grab:click="hit('8.1.2')"
-                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: transparent; border-width: 4px; border-color: #ff4d8bfe;"></div>
+                  style="left: 76px; top: 28px; width: 96px; height: 80px; background-color: transparent; border-width: 4px; border-color: #ff4d8bfe;"></div>
                 <div grab:click="hit('8.1.3')"
-                  style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ff4d8bfe; opacity: 0;"></div>
+                  style="left: 148px; top: 52px; width: 96px; height: 80px; background-color: #ff4d8bfe; opacity: 0;"></div>
               </stack>
             </stack>
           </div>
@@ -182,11 +182,11 @@
             <stack style="width: 252px; height: 136px; background-color: transparent;">
               <stack on:click="hit('9.1')"
                 style="left: 0px; top: 0px; width: 252px; height: 136px; background-color: #33ffffff;">
-                <div style="left: 6px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d;"></div>
+                <div style="left: 4px; top: 4px; width: 96px; height: 80px; background-color: #ffe1c24d;"></div>
                 <div
-                  style="left: 90px; top: 8px; width: 72px; height: 88px; background-color: transparent; border-width: 4px; border-color: #ffe1c24d;"></div>
+                  style="left: 76px; top: 28px; width: 96px; height: 80px; background-color: transparent; border-width: 4px; border-color: #ffe1c24d;"></div>
                 <div
-                  style="left: 174px; top: 8px; width: 72px; height: 88px; background-color: #ffe1c24d; opacity: 0;"></div>
+                  style="left: 148px; top: 52px; width: 96px; height: 80px; background-color: #ffe1c24d; opacity: 0;"></div>
               </stack>
             </stack>
           </div>
@@ -199,4 +199,10 @@
 
   </list>
   </div>
+
+  <!-- 点击指示：跟命中链一起显示 1 秒，位置直接用事件里的屏幕坐标（根 stack 和屏幕重合，不用换算），36px 图要退 18 才是中心 -->
+  <!-- 这张图不绑任何事件，纯展示，不进命中链，也不参与冒泡 -->
+  <image if="{{tapStatus !== 0}}" src="/common/hand_point_up_tap-36px.png"
+    style="left: {{tapX - 18}}px; top: {{tapY - 18}}px; width: 36px; height: 36px;">
+  </image>
 </stack>
