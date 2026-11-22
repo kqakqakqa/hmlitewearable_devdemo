@@ -1,3 +1,5 @@
+/* version 20261122 */
+
 console.info("uiSizes.js onImport");
 
 let deviceInfo = {};
@@ -21,7 +23,8 @@ const _this = {
       complete: () => {
         _this.screenWidth = deviceInfo.windowWidth;
         _this.screenHeight = deviceInfo.windowHeight;
-        _this.isCircle = deviceInfo.screenShape === "circle";
+        // 预览器的 screenShape 会错报成方形，靠宽高兜底成圆屏。
+        _this.isCircle = deviceInfo.screenShape === "circle" || _this.screenWidth === _this.screenHeight;
         uiSize = getUiSize(_this.screenWidth, _this.screenHeight);
         _this.uiWidth = uiSize[0];
         _this.uiHeight = uiSize[1];
@@ -34,13 +37,31 @@ const _this = {
 }
 
 function getUiSize(w, h) {
-  if (w === 280 && h === 456) return [276, 360]; // D
-  if (w === 336 && h === 480) return [336, 396]; // FIT2
-  if (w === 408 && h === 480) return [336, 396]; // FIT3
-  if (w === 390 && h === 390) return [276, 276]; // GT2-42mm
-  if (w === 454 && h === 454) return [336, 306]; // GT2-46mm
-  if (w === 466 && h === 466) return [336, 306]; // GT3
-  return [276, 276];
+  const isCircle = _this.isCircle;
+
+  let uiWidth;
+  let uiHeight;
+
+  if (isCircle) { // circle
+
+    if (w < 454) uiWidth = 276;
+    else uiWidth = w / 454 * 306;
+
+    if (h < 454) uiHeight = 276;
+    else uiHeight = h / 454 * 306;
+
+  } else { // rect
+
+    if (w < 336) uiWidth = 276;
+    else if (w < 408) uiWidth = 336;
+    else uiWidth = w - 408 + 336;
+
+    if (h < 480) uiHeight = 360;
+    else uiHeight = h - 480 + 396;
+
+  }
+
+  return [uiWidth, uiHeight];
 }
 
 export default _this;

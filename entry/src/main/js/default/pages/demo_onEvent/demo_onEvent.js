@@ -60,7 +60,7 @@ export default {
 
   onClick(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:click";
+    this.status = "click";
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = 1;
@@ -73,7 +73,7 @@ export default {
 
   onDoubleClick(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:doubleclick";
+    this.status = "doubleclick";
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = 1;
@@ -81,7 +81,7 @@ export default {
 
   onLongPress(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:longpress";
+    this.status = "longpress";
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = 1;
@@ -89,7 +89,7 @@ export default {
 
   onLongPressRelease(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:longpressrelease";
+    this.status = "longpressrelease";
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = -1;
@@ -97,7 +97,7 @@ export default {
 
   onTouchStart(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:touchstart";
+    this.status = "touchstart";
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = 1;
@@ -107,7 +107,7 @@ export default {
 
   onTouchMove(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:touchmove";
+    this.status = "touchmove";
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = 1;
@@ -128,7 +128,7 @@ export default {
 
   onTouchEnd(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:touchend";
+    this.status = "touchend";
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = -1;
@@ -138,7 +138,7 @@ export default {
 
   onTouchCancel(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:touchcancel";
+    this.status = "touchcancel";
     this.touchX = this.relPosX(e.globalX);
     this.touchY = this.relPosY(e.globalY);
     this.touchStatus = -1;
@@ -147,7 +147,7 @@ export default {
 
   onPinchStart(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:pinchstart";
+    this.status = "pinchstart";
     this.pinchX = this.relPosX(e.pinchCenterX);
     this.pinchY = this.relPosY(e.pinchCenterY);
     this.pinchStatus = 1;
@@ -156,14 +156,14 @@ export default {
   onPinchUpdate(e) {
     console.info(JSON.stringify(e));
     this.pinchX = this.relPosX(e.pinchCenterX);
-    this.status = "on:pinchupdate";
+    this.status = "pinchupdate";
     this.pinchY = this.relPosY(e.pinchCenterY);
     this.pinchStatus = 1;
   },
 
   onPinchEnd(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:pinchend";
+    this.status = "pinchend";
     this.pinchX = this.relPosX(e.pinchCenterX);
     this.pinchY = this.relPosY(e.pinchCenterY);
     this.pinchStatus = -1;
@@ -171,7 +171,7 @@ export default {
 
   onPinchCancel(e) {
     console.info(JSON.stringify(e));
-    this.status = "on:pinchcancel";
+    this.status = "pinchcancel";
     this.pinchX = this.relPosX(e.pinchCenterX);
     this.pinchY = this.relPosY(e.pinchCenterY);
     this.pinchStatus = -1;

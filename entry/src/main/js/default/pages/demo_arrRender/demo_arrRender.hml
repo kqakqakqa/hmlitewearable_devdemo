@@ -1,7 +1,7 @@
 <stack style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
   <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;"></image>
   <div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
-  <list ref="bindRotation" on:swipe="swipeBack"
+  <list ref="bindRotation" grab:swipe="swipeBack"
     style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
 
     <!-- timeBattery -->
@@ -15,7 +15,7 @@
       style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
         <text class="text-38px title-text">列表渲染</text>
-        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
+        <div grab:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
       </stack>
@@ -32,27 +32,27 @@
     <!-- btn -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 384px; justify-content: center;">
       <div style="width: 276px; height: 378px; flex-wrap: wrap; justify-content: space-between;">
-        <text on:click="clickBtn('same')" class="btn">=arr</text>
-        <text on:click="clickBtn('push')" class="btn">push</text>
-        <text on:click="clickBtn('pop')" class="btn">pop</text>
-        <text on:click="clickBtn('shift')" class="btn">shift</text>
-        <text on:click="clickBtn('unshift')" class="btn">unshift</text>
-        <text on:click="clickBtn('reverse')" class="btn">reverse</text>
-        <text on:click="clickBtn('sort')" class="btn" style="color: gold;">sort</text>
+        <text grab:click="clickBtn('same')" class="btn">=arr</text>
+        <text grab:click="clickBtn('push')" class="btn">push</text>
+        <text grab:click="clickBtn('pop')" class="btn">pop</text>
+        <text grab:click="clickBtn('shift')" class="btn">shift</text>
+        <text grab:click="clickBtn('unshift')" class="btn">unshift</text>
+        <text grab:click="clickBtn('reverse')" class="btn">reverse</text>
+        <text grab:click="clickBtn('sort')" class="btn" style="color: gold;">sort</text>
 
-        <text on:click="clickBtn('forEachV')" class="btn">forEa(v)</text>
-        <text on:click="clickBtn('forEachI')" class="btn">forEa(v,i)</text>
-        <text on:click="clickBtn('forOf')" class="btn" style="color: orangered;">for...of</text>
-        <text on:click="clickBtn('forIn')" class="btn">for...in</text>
-        <text on:click="clickBtn('forLet')" class="btn">for(i)</text>
+        <text grab:click="clickBtn('forEachV')" class="btn">forEa(v)</text>
+        <text grab:click="clickBtn('forEachI')" class="btn">forEa(v,i)</text>
+        <text grab:click="clickBtn('forOf')" class="btn" style="color: orangered;">for...of</text>
+        <text grab:click="clickBtn('forIn')" class="btn">for...in</text>
+        <text grab:click="clickBtn('forLet')" class="btn">for(i)</text>
 
-        <text on:click="clickBtn('index')" class="btn">arr[0]=</text>
-        <text on:click="clickBtn('fill')" class="btn" style="color: coral;">fill</text>
-        <text on:click="clickBtn('splice')" class="btn">splice</text>
+        <text grab:click="clickBtn('index')" class="btn">arr[0]=</text>
+        <text grab:click="clickBtn('fill')" class="btn" style="color: coral;">fill</text>
+        <text grab:click="clickBtn('splice')" class="btn">splice</text>
 
-        <text on:click="clickBtn('from')" class="btn" style="color: coral;">=Ar.from</text>
-        <text on:click="clickBtn('assign')" class="btn">=[]</text>
-        <text on:click="clickBtn('len0')" class="btn" style="color: gold;">len=0</text>
+        <text grab:click="clickBtn('from')" class="btn" style="color: coral;">=Ar.from</text>
+        <text grab:click="clickBtn('assign')" class="btn">=[]</text>
+        <text grab:click="clickBtn('len0')" class="btn" style="color: gold;">len=0</text>
       </div>
     </list-item>
 

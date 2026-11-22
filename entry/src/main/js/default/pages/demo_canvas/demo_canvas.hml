@@ -1,7 +1,7 @@
 <stack style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
   <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;"></image>
   <div style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
-  <list ref="bindRotation" on:swipe="swipeBack"
+  <list ref="bindRotation" grab:swipe="swipeBack"
     style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; background-color: transparent;">
 
     <!-- timeBattery -->
@@ -15,7 +15,7 @@
       style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center; background-color: transparent;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px; background-color: transparent;">
         <text class="text-38px title-text">canvas</text>
-        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
+        <div grab:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
       </stack>
@@ -30,24 +30,24 @@
     <!-- 控制按钮 -->
     <list-item style="width: {{uiSizes.screenWidth}}px; height: 468px; justify-content: center;">
       <div style="width: 276px; height: 462px; flex-wrap: wrap; justify-content: space-between;">
-        <text on:click="showCanvas" class="btn">显示</text>
-        <text on:click="hideCanvas" class="btn">隐藏</text>
-        <text on:click="startMoving" class="btn">动画(!)</text>
-        <text on:click="clearCanvas" class="btn">清空</text>
-        <text on:click="testFillRect" class="btn">fillRect</text>
-        <text on:click="testStrokeRect" class="btn">strkRect</text>
-        <text on:click="testFillText" class="btn">fillText</text>
-        <text on:click="testLineWidth" class="btn">lneWidth</text>
-        <text on:click="testStrokeStyle" class="btn">strkStyle</text>
-        <text on:click="testStroke" class="btn">stroke</text>
-        <text on:click="testBeginPath" class="btn">begnPath</text>
-        <text on:click="testMoveTo" class="btn">moveTo</text>
-        <text on:click="testLineTo" class="btn">lineTo</text>
-        <text on:click="testClosePath" class="btn">clsePath</text>
-        <text on:click="testFont" class="btn">font</text>
-        <text on:click="testTextAlign" class="btn">textAlign</text>
-        <text on:click="testArc" class="btn">arc</text>
-        <text on:click="testRect" class="btn">rect</text>
+        <text grab:click="showCanvas" class="btn">显示</text>
+        <text grab:click="hideCanvas" class="btn">隐藏</text>
+        <text grab:click="startMoving" class="btn">动画(!)</text>
+        <text grab:click="clearCanvas" class="btn">清空</text>
+        <text grab:click="testFillRect" class="btn">fillRect</text>
+        <text grab:click="testStrokeRect" class="btn">strkRect</text>
+        <text grab:click="testFillText" class="btn">fillText</text>
+        <text grab:click="testLineWidth" class="btn">lneWidth</text>
+        <text grab:click="testStrokeStyle" class="btn">strkStyle</text>
+        <text grab:click="testStroke" class="btn">stroke</text>
+        <text grab:click="testBeginPath" class="btn">begnPath</text>
+        <text grab:click="testMoveTo" class="btn">moveTo</text>
+        <text grab:click="testLineTo" class="btn">lineTo</text>
+        <text grab:click="testClosePath" class="btn">clsePath</text>
+        <text grab:click="testFont" class="btn">font</text>
+        <text grab:click="testTextAlign" class="btn">textAlign</text>
+        <text grab:click="testArc" class="btn">arc</text>
+        <text grab:click="testRect" class="btn">rect</text>
       </div>
     </list-item>
 

@@ -1,7 +1,7 @@
 <stack style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
   <image src="/common/background.png" style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px;">
   </image>
-  <div on:swipe="swipeBack"
+  <div grab:swipe="swipeBack"
     style="width: {{uiSizes.screenWidth}}px; height: {{uiSizes.screenHeight}}px; flex-direction: column;">
 
     <!-- timeBattery -->
@@ -13,14 +13,16 @@
     <div style="width: {{uiSizes.screenWidth}}px; height: 96px; justify-content: center;">
       <stack style="width: {{uiSizes.uiWidth}}px; height: 72px;">
         <text class="text-38px title-text">文字大小</text>
-        <div on:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
+        <div grab:click="clickBack" class="roundBtn" style="left: {{uiSizes.uiWidth - 72}}px;">
           <image style="width: 44px; height: 44px;" src="/common/chevron_left-44px.png"></image>
         </div>
       </stack>
     </div>
 
     <!-- rotation -->
-    <slider ref="bindRotation" on:change="onRotate" value="{{sliderValue}}" min="-1" max="1"
+    <!-- change 是 slider 的专属事件，值变更只属于这个控件，语义上独占，所以用 grab:。
+         这是应用层语义声明：判据只看交互归属，不看编译产物落到哪个字段，也不看祖先当前有没有监听者。 -->
+    <slider ref="bindRotation" grab:change="onRotate" value="{{sliderValue}}" min="-1" max="1"
       style="width: 0px; height: 0px; background-color: transparent;">
     </slider>
 
@@ -41,15 +43,15 @@
           fs: {{fontSize}}, h: {{fontSize * 1.25}}
         </text>
 
-        <div on:click="changeFontSize(-1)" class="roundBtn" style="left: 12px; top: 96px; background-color: #22ffffff;">
+        <div grab:click="changeFontSize(-1)" class="roundBtn" style="left: 12px; top: 96px; background-color: #22ffffff;">
           <text class="text-38px">-</text>
         </div>
 
-        <div on:click="changeText" class="roundBtn" style="left: 102px; top: 96px; background-color: #22ffffff;">
+        <div grab:click="changeText" class="roundBtn" style="left: 102px; top: 96px; background-color: #22ffffff;">
           <text class="text-38px">~</text>
         </div>
 
-        <div on:click="changeFontSize(1)" class="roundBtn" style="left: 192px; top: 96px; background-color: #22ffffff;">
+        <div grab:click="changeFontSize(1)" class="roundBtn" style="left: 192px; top: 96px; background-color: #22ffffff;">
           <text class="text-38px">+</text>
         </div>
 
