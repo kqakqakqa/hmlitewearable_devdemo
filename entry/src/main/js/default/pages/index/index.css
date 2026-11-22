@@ -1,0 +1,47 @@
+/* 浮出前先停在下方且不可见：初始动画名用这个，避免图标先闪一下再浮出。
+   注意 lite 的 transform 是相对上一次动画的状态叠加的，播完后元素位移已经累积成 +85px，
+   后面每一段都要按"增量"写，不是按绝对位置写 */
+@keyframes splash-icon-hidden {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* 开屏图标浮出：从下方 0.75 个图标的高度（114px × 0.75）升到居中位，同时淡入。
+   to 必须写 -85px 而不是 0px：+85px 的位移已经在上一段累积了，这里叠 -85px 才回到居中位 */
+@keyframes splash-icon-float-in {
+  from {
+    transform: translateY(85px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+/* 开屏图标消失：只做淡出，位置和尺寸都不动，不做缩放。
+   位移增量写 0，保持上一段累积的位置不变；
+   lite 的 keyframes 只有 0%/100% 两档，"先停 250ms 再淡出"由 index.js 分两段计时完成 */
+@keyframes splash-icon-fade-out {
+  from {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateY(0px);
+    opacity: 0;
+  }
+}
+
+/* 时长不写死：由 index.js 的 iconAnimDuration 经 hml 绑定，浮出 500ms、淡出 250ms */
+.splash-icon {
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}

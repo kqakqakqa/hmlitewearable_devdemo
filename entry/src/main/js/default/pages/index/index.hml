@@ -1,1 +1,7 @@
-<div></div>
+<stack style="width: {{screenWidth}}px; height: {{screenHeight}}px; background-color: transparent;">
+  <image src="/common/background.png" style="width: {{screenWidth}}px; height: {{screenHeight}}px;"></image>
+
+  <image class="splash-icon"
+    style="width: {{iconSize}}px; height: {{iconSize}}px; left: {{iconLeft}}px; top: {{iconTop}}px; animation-name: {{iconAnimName}}; animation-duration: {{iconAnimDuration}}ms;"
+    src="/common/icon.png"></image>
+</stack>
