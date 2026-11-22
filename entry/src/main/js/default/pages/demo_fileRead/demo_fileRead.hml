@@ -22,7 +22,7 @@
     </list-item>
 
     <!-- text -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 91px; justify-content: center;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 91px; justify-content: center; background-color: transparent;">
       <div
         style="width: {{uiSizes.uiWidth}}px; height: 79px; background-color: #22ffffff; border-radius: 12px; align-items: center; padding: 6px;">
         <text class="text-30px" style="width: {{uiSizes.uiWidth}}px; height: 79px;">{{text}}</text>
@@ -30,7 +30,7 @@
     </list-item>
 
     <!-- text -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 186px; justify-content: center;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 186px; justify-content: center; background-color: transparent;">
       <div
         style="width: {{uiSizes.uiWidth}}px; height: 174px; background-color: #22ffffff; border-radius: 12px; align-items: center; padding: 6px;">
         <text class="text-30px" style="width: {{uiSizes.uiWidth}}px; height: 174px;">{{utf}}</text>
@@ -38,7 +38,7 @@
     </list-item>
 
     <!-- binary -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 215px; justify-content: center;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 215px; justify-content: center; background-color: transparent;">
       <div
         style="width: {{uiSizes.uiWidth}}px; height: 203px; background-color: #22ffffff; border-radius: 12px; align-items: center; padding: 6px;">
         <text class="text-30px" style="width: {{uiSizes.uiWidth}}px; height: 203px;">{{binary}}</text>
@@ -46,8 +46,8 @@
     </list-item>
 
     <!-- btn -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 128px; justify-content: center;">
-      <div style="width: 276px; height: 116px; flex-wrap: wrap; justify-content: space-between;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 128px; justify-content: center; background-color: transparent;">
+      <div style="width: 276px; height: 116px; flex-wrap: wrap; justify-content: space-between; background-color: transparent;">
         <text class="text-30px" style="width: 276px; text-align: center;">{{readPos}}</text>
         <text grab:click="changeReadPos(-1)" class="btn">-1</text>
         <text grab:click="changeReadPos(1)" class="btn">+1</text>

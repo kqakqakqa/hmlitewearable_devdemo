@@ -22,7 +22,7 @@
     </list-item>
 
     <!-- arr -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 54px; justify-content: center;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 54px; justify-content: center; background-color: transparent;">
       <div
         style="width: {{uiSizes.uiWidth}}px; height: 48px; background-color: #22ffffff; border-radius: 12px; align-items: center; padding: 6px;">
         <text for="{{arr}}" style="font-size: 30px;">{{$item.v}}</text>
@@ -30,8 +30,8 @@
     </list-item>
 
     <!-- btn -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 384px; justify-content: center;">
-      <div style="width: 276px; height: 378px; flex-wrap: wrap; justify-content: space-between;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 384px; justify-content: center; background-color: transparent;">
+      <div style="width: 276px; height: 378px; flex-wrap: wrap; justify-content: space-between; background-color: transparent;">
         <text grab:click="clickBtn('same')" class="btn">=arr</text>
         <text grab:click="clickBtn('push')" class="btn">push</text>
         <text grab:click="clickBtn('pop')" class="btn">pop</text>

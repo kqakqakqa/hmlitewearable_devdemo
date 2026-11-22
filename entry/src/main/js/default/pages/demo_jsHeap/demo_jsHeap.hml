@@ -22,7 +22,7 @@
     </list-item>
 
     <!-- model jsHeap -->
-    <list-item style="width: {{uiSizes.screenWidth}}px; height: 132px; justify-content: center;">
+    <list-item style="width: {{uiSizes.screenWidth}}px; height: 132px; justify-content: center; background-color: transparent;">
       <text class="text-30px" style="width: {{uiSizes.screenWidth}}px; height: 120px; text-align: center;">
         型号: {{model}}\njs heap: {{jsHeap}}\n{{doTest ? "将在下次启动时测试" : ""}}
       </text>
